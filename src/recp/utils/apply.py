@@ -9,6 +9,16 @@ def apply_date(
         token: str,
         format: str = "%Y-%m-%d"
 ) -> List[str]:
+    """Replaces a given token by a date.
+
+    Args:
+        cmd_list (List[str]): Input commands.
+        token (str): The token within the command strings to be replaced.
+        format (str): Date format to use.
+    
+    Returns:
+        List[str]: List of modified commands.
+    """
     for cmd_idx, cmd in enumerate(cmd_list):
         cmd_list[cmd_idx] = cmd.replace(token, datetime.now().strftime(format))
     
@@ -19,9 +29,22 @@ def apply_dir_files(
         cmd_list: List[str],
         token: str,
         dir: str,
-        ext: str,
+        ext: str | List[str],
         recursive: bool = True
 ) -> List[str]:
+    """Replaces a given token by the path to each file in a foleder.
+
+    Args:
+        cmd_list (List[str]): Input commands.
+        token (str): The token within the command strings to be replaced.
+        dir (str): Path to the folder to be searched.
+        ext (str | List[str]): The file extension(s) used to filter files. Only
+            files matching these extension(s) will be considered.
+        recursive (bool): If `True`, the search is done recursively. 
+    
+    Returns:
+        List[str]: List of modified commands.
+    """
     for cmd in cmd_list:
         files = get_dir_files(dir=dir, ext=ext, recursive=recursive)
         cmd_expanded_list = []
