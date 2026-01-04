@@ -16,12 +16,24 @@ from .exceptions import (
 from .apply import get_apply_registy
 
 
-class Recipe:
+class Recipe: 
     ROOT_KEY = "recipe"
     MINIMUM_REQUIRED_VERSION_KEY = "minimum_required_version"
     MANDATORY_STEP_KEYS = ("run",)
     OPTIONAL_STEP_KEYS = ("tag", "description", "env")
     PACKAGE_VERSION = Version(package_version("recp"))
+
+    """Class that represents a recipe loaded from a file and all the additional
+    necessary functionality to run the commands on all steps found in the
+    recipe.
+
+    Args:
+        file (str): Recipe `.yaml` file.
+        allow_expr (bool): If `True`, allows using the the `!expr` directive in
+            the recipe. This is not allowed by default because this expression
+            if considered unsafe.
+        verbose (bool): If `True`, verbose mode is enabled.
+    """
 
     def __init__(
             self,
@@ -98,6 +110,14 @@ class Recipe:
         return str(value).split(" ")
     
     def load(self, file: str) -> dict:
+        """Loads a `.yaml` recipe file.
+        
+        Args:
+            file (str): `.yaml` recipe file to be loaded.
+        
+        Returns:
+            (dict): Parsed `.yaml` recipe file.
+        """
         # Add custom constructors
         yaml.SafeLoader.add_constructor("!expr", self._yaml_expr_constructor)
         yaml.SafeLoader.add_constructor("!input", self._yaml_input_constructor)
@@ -110,6 +130,12 @@ class Recipe:
         return data
     
     def validate_minimum_version_required(self, data: dict) -> None:
+        """Corroborates the minimum version required is met if the `.yaml`
+        recipe file contains a `minimum_required_version` key.
+
+        Args:
+            data (dict): Recipe file data.
+        """
         if data.get(self.MINIMUM_REQUIRED_VERSION_KEY) is not None:
             minimum_required_version = Version(
                 data["minimum_required_version"]
@@ -122,6 +148,11 @@ class Recipe:
                 )
     
     def validate_keys(self, data: dict) -> None:
+        """Validate keys present in the recipe `.yaml` file.
+        
+        Args:
+            data (dict): Recipe `.yaml` file data.
+        """
         # Check 'recipe' key exists
         if self.ROOT_KEY not in data:
             raise KeyError(f"Key {self.ROOT_KEY!r} not found in recipe file")
