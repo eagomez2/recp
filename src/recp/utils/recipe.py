@@ -351,19 +351,22 @@ class Recipe:
         
 
         for step_idx, (step_name, step) in enumerate(data["recipe"].items()):
-            print(
-                f"[{step_idx + 1}/{num_steps}] Running step {step_name!r} ..."
-            )
+            progress_repr = f"[{step_idx + 1}/{num_steps}]"
+            indent = " " * (len(progress_repr) + 1)
+            print(f"{progress_repr} Running step {step_name!r} ...")
 
             if step.get("tag") is not None:
                 tags_repr = ", ".join(f"{t!r}" for t in step["tag"])
-                print(f"> Tags: {tags_repr}")
+                print(f"{indent}{'Tags:':<{13}}{tags_repr}")
 
             if step.get("description") is not None:
-                print(f"> Description: {step['description']}".rstrip("\n"))
+                print(
+                    f"{indent}{'Description:':<{13}}"
+                    f"{step['description']}".rstrip("\n")
+                )
 
             for cmd in step["run"]:
-                print(f"> Command: {cmd}")
+                print(f"{indent}{'Command:':<{13}}{cmd}")
 
                 if not dry_run: 
                     if ignore_errors:
