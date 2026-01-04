@@ -11,8 +11,28 @@ def get_dir_files(
         dir: str | List[str],
         ext: str | List[str] = "*",
         recursive: bool = True,
-        key: Callable | None = None,
+        key: Callable | None = None
 ) -> List[str]:
+    """Returns a `list` with all the files inside folder with extension `ext`.
+    It supports a recursive search and searching in more than one root folder
+    at a time if `recursive=True` and `dir` is a `list` of `str`,
+    respectively.
+
+    Args:
+        dir (str | List[str]): Folder(s) to be searched.
+        ext (str | Tuple[str]): File extensions to be considered. Accepts `.*`
+            as a wild card.
+        recursive (bool): If `True`, the search inside each folder will be
+            recursive.
+        key (Callable | None): Key function to sort the results. If it is not
+            provided, files will be sorted alphabetically.
+
+    Returns:
+        `list` of `str` with the path to each retrieved file.
+
+    Raises:
+        FileNotFoundError: If one of the folder(s) cannot be found.
+    """
     dir = make_list(dir)
     ext = make_list(ext)
 
