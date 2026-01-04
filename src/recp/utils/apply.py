@@ -37,6 +37,17 @@ def apply_parent_dir(
         token: str,
         path: str
 ) -> List[str]:
+    """Replaces a given token by the parent path of a given path.
+
+    Args:
+        cmd_list (List[str]): Input commands.
+        token (str): The token within the command strings to be replaced.
+        path (str): The file system path from which the parent directory will
+            be extracted.
+    
+    Returns:
+        List[str]: List of modified commands.
+    """
     for cmd_idx, cmd in enumerate(cmd_list):
         cmd_list[cmd_idx] = cmd.replace(
             token,
@@ -47,6 +58,16 @@ def apply_parent_dir(
 
 
 def apply_replace(cmd_list: List[str], **kwargs) -> List[str]:
+    """Replace placeholders by specified values.
+    
+    Args:
+        cmd_list (List[str]): Input commands.
+        **kwargs: Each subsequent argument corresponds to the value to be
+            replaced, and the value is the updated value it will take.
+    
+    Returns:
+        List[str]: List of modified commands.
+    """
     for cmd_idx, cmd in enumerate(cmd_list):
         for k, v in kwargs.items():
             cmd_list[cmd_idx] = cmd.replace(k, v)
@@ -55,10 +76,22 @@ def apply_replace(cmd_list: List[str], **kwargs) -> List[str]:
 
 
 def apply_repeat(cmd_list: List[str], n: int) -> List[str]:
+    """Repeat a command or command list `n` times.
+    
+    Args:
+        cmd_list (List[str]): Input commands.
+        n (int): Number of repetitions.
+    
+    Returns:
+        List[str]: List of modified commands.
+    """
     return cmd_list * n
 
 
 def get_apply_registy() -> dict:
+    """Returns the registry of all functions that can be used withing the `run`
+    key of a recipe `.yaml` file.
+    """
     return {
         "date": apply_date,
         "dir_files": apply_dir_files,

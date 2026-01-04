@@ -31,7 +31,7 @@ class PackageConfig:
     @property
     def recipes_dir(self) -> str:
         return self.config["recipes.dir"]
-    
+
     def maybe_reset_default_config(self) -> None:
         BASE_DIR = self._platform.user_data_dir
         RECIPES_DIR = os.path.join(BASE_DIR, "recipes")

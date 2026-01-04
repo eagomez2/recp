@@ -20,6 +20,18 @@ def make_list(x: Any) -> List[Any]:
 
 @contextmanager
 def temp_env(merge: dict = {}):
+    """Temporarily modify the environment variables.
+
+    This context manager allows temporary modification of the
+    environment variables for the duration of the context. Once the
+    context is exited, the environment variables are restored to their
+    original state.
+
+    Args:
+        merge (dict): A dictionary of environment variables to be
+            temporarily added or updated. The keys are the variable
+            names and the values are their corresponding values.
+    """
     old_env = os.environ.copy()
     
     try:
