@@ -1,7 +1,7 @@
 [project]
 name = "recp"
 authors = [{name = "Esteban Gómez", email = "esteban.gomezmellado@aalto.fi"}]
-version = "0.1.0"
+version = "0.1.1"
 description = "A tool for running command line recipes"
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -23,6 +23,11 @@ Home = "https://www.github.com/eagomez2/recp"
 "recp" = "recp.cli.main:main"
 
 [project.optional-dependencies]
+docs = [
+    "mkdocs>=1.6.1",
+    "mkdocstrings-python>=2.0.1",
+    "mkdocs-material>=9.7.1"
+]
 lint = [
     "ruff>=0.1.9"
 ]

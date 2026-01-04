@@ -16,13 +16,7 @@ from .exceptions import (
 from .apply import get_apply_registy
 
 
-class Recipe: 
-    ROOT_KEY = "recipe"
-    MINIMUM_REQUIRED_VERSION_KEY = "minimum_required_version"
-    MANDATORY_STEP_KEYS = ("run",)
-    OPTIONAL_STEP_KEYS = ("tag", "description", "env")
-    PACKAGE_VERSION = Version(package_version("recp"))
-
+class Recipe:
     """Class that represents a recipe loaded from a file and all the additional
     necessary functionality to run the commands on all steps found in the
     recipe.
@@ -33,7 +27,11 @@ class Recipe:
             the recipe. This is not allowed by default because this expression
             if considered unsafe.
     """
-
+    ROOT_KEY = "recipe"
+    MINIMUM_REQUIRED_VERSION_KEY = "minimum_required_version"
+    MANDATORY_STEP_KEYS = ("run",)
+    OPTIONAL_STEP_KEYS = ("tag", "description", "env")
+    PACKAGE_VERSION = Version(package_version("recp")) 
     def __init__(
             self,
             file: str,
