@@ -283,6 +283,15 @@ class Recipe:
             ignore_errors: bool = False,
             dry_run: bool = False
     ) -> None:
+        """Run all processed commands in a recipe `.yaml` file.
+        
+        Args:
+            tag (Tuple[str]): Tag(s) to select.
+            ignore_errors (bool): If `True`, steps producing errors will not
+                stop the execution of subsequent steps.
+            dry_run (bool): If `True`, commands to be run are only displayed
+                and not run.
+        """
         # ----------------------------------------------------------------------
         # SECTION: INPUT
         # ----------------------------------------------------------------------
