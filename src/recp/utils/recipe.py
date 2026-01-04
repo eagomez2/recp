@@ -110,13 +110,16 @@ class Recipe:
         return data
     
     def validate_minimum_version_required(self, data: dict) -> None:
-        if data.get("minimum_required_version") is not None:
+        if data.get(self.MINIMUM_REQUIRED_VERSION_KEY) is not None:
             minimum_required_version = Version(
                 data["minimum_required_version"]
             )
 
             if not self.PACKAGE_VERSION >= minimum_required_version:  # noqa: SIM300
-                raise MinimumVersionRequirementError
+                raise MinimumVersionRequirementError(
+                    f"This recipe requires recp >= {minimum_required_version} "
+                    f" but current recp version is {self.PACKAGE_VERSION}"
+                )
     
     def validate_keys(self, data: dict) -> None:
         # Check 'recipe' key exists
