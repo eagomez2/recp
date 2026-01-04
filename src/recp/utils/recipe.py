@@ -32,21 +32,18 @@ class Recipe:
         allow_expr (bool): If `True`, allows using the the `!expr` directive in
             the recipe. This is not allowed by default because this expression
             if considered unsafe.
-        verbose (bool): If `True`, verbose mode is enabled.
     """
 
     def __init__(
             self,
             file: str,
             allow_expr: bool = False,
-            verbose: bool = False
     ) -> None:
         super().__init__()
 
         # Params
         self.file = file
         self.allow_expr = allow_expr
-        self.verbose = verbose
 
         # Load and validate file structure
         self._data = self.load(self.file)
@@ -349,7 +346,6 @@ class Recipe:
         else:
             print("Running commands ...")
         
-
         for step_idx, (step_name, step) in enumerate(data["recipe"].items()):
             progress_repr = f"[{step_idx + 1}/{num_steps}]"
             indent = " " * (len(progress_repr) + 1)

@@ -49,11 +49,6 @@ def get_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="enable unsafe !expr constructor in recipe files"
     )
-    run_parser.add_argument(
-        "-v", "--verbose",
-        action="store_true",
-        help="enable verbose mode"
-    )
 
     # Config parser
     config_parser = subparser.add_parser(
@@ -131,11 +126,7 @@ def main() -> None:
                     )
 
             # Create and run recipe
-            recipe = Recipe(
-                file=args.recipe,
-                allow_expr=args.unsafe,
-                verbose=args.verbose
-            )
+            recipe = Recipe(file=args.recipe, allow_expr=args.unsafe)
             recipe.run(
                 tag=args.tag,
                 ignore_errors=args.ignore_errors,
