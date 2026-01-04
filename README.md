@@ -27,7 +27,7 @@ If this package contributed to your work, please consider citing it:
 @misc{recp,
   author = {Esteban Gómez},
   title  = {recp},
-  year   = 2025,
+  year   = 2026,
   url    = {https://github.com/eagomez2/recp}
 }
 ```
