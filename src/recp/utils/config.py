@@ -10,6 +10,12 @@ from .exceptions import (
 
 
 class PackageConfig:
+    """Package configuration parameters.
+
+    Args:
+        app_name (str): Application name.
+        app_author (str): Application author name.
+    """
     def __init__(
             self,
             app_name: str,
@@ -30,9 +36,15 @@ class PackageConfig:
         
     @property
     def recipes_dir(self) -> str:
+        """Returns the folder where user recipes are stored.
+
+        Returns:
+            (str): Folder where user recipes are stored.
+        """
         return self.config["recipes.dir"]
 
     def maybe_reset_default_config(self) -> None:
+        """Restores the default package configuration if it does not exist."""
         BASE_DIR = self._platform.user_data_dir
         RECIPES_DIR = os.path.join(BASE_DIR, "recipes")
         BASE_SETTINGS_FILE = os.path.join(BASE_DIR, "settings.json")
@@ -46,10 +58,19 @@ class PackageConfig:
                 json.dump(obj=BASE_SETTINGS, fp=f, indent=2)
     
     def save_config(self) -> None:
+        """Saves the `settings.json` configuration file with the update
+        configuration parameters.
+        """
         with open(self.config_file, "w", encoding="utf-8") as f:
             json.dump(self.config, f)
  
     def set_param(self, param: str, value: Any) -> None:
+        """Sets a parameter value in the user configuration file.
+        
+        Args:
+            param (str): Parameter name.
+            value (Any): Parameter value.
+        """
         if param not in self.config:
             raise ValueError(
                 f"Invalid parameter {param!r}. Run 'recp config' to list "
@@ -69,6 +90,11 @@ class PackageConfig:
         self.save_config()
     
     def add_recipe(self, file: str) -> None:
+        """Adds a new recipe to the user recipes folder.
+        
+        Args:
+            file (str): `.yaml` recipe file to add.
+        """
         if not os.path.isfile(file):
             raise FileNotFoundError(f"File {file!r} not found")
         
@@ -81,6 +107,7 @@ class PackageConfig:
         print(f"Recipe {file!r} successfully added to recipes folder")
 
     def print_params(self) -> None:
+        """Prints user parameters to the terminal. """
         print(f"file: {self.config_file!r}")
 
         for k, v in self.config.items():
