@@ -166,6 +166,17 @@ class Recipe:
                     )
     
     def filter_by_tag(self, data: dict, tag: str | List[str]) -> dict:
+        """Filter steps by a given tag.
+        
+        Args:
+            data (dict): Recipe `.yaml` file data.
+            tag (str | List[str]): Tag(s) to select. Values not containing any
+                tag in the list are removed from the resulting `dict`.
+        
+        Returns:
+            (dict): Resulting `.yaml` recipe filtered after selecting steps by
+                tag.
+        """
         selected_steps = []
 
         for name in data["recipe"]:
@@ -181,6 +192,15 @@ class Recipe:
         return data
     
     def parse_env(self, data: dict) -> dict:
+        """Parse `env` environment key.
+
+        Args:
+            data (dict): Recipe `.yaml` file data.
+
+        Returns:
+            (dict): Resulting recipe `.yaml` data after solving all
+                environmental variables in the `env` key.
+        """
         for step_name, step in data["recipe"].items():
             if (env := step.get("env")) is not None:
                 for k, v in env.items():
@@ -206,6 +226,14 @@ class Recipe:
         return data
     
     def parse_run(self, data: dict) -> dict:
+        """Parse `run` commands key.
+
+        Args:
+            data (dict): Recipe `.yaml` file data.
+
+        Returns:
+            (dict): Resulting recipe `.yaml` data after commands.
+        """
         for step_name, step in data["recipe"].items():
             cmd_seq = []
 
