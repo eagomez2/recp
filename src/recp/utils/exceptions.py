@@ -13,3 +13,7 @@ class FolderNotFoundError(Exception):
 
 class FileExtensionError(Exception):
     pass
+
+
+class LenghtError(Exception):
+    pass

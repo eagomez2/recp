@@ -2,6 +2,7 @@ import os
 from datetime import datetime
 from typing import List
 from .io import get_dir_files
+from .exceptions import LenghtError
 
 
 def apply_date(
@@ -111,6 +112,49 @@ def apply_repeat(cmd_list: List[str], n: int) -> List[str]:
     return cmd_list * n
 
 
+def apply_replace_if(
+        cmd_list: List[str],
+        var: str,
+        token: str,
+        value_if: str,
+        value_else: str
+) -> List[str]:
+    for cmd_idx, cmd in enumerate(cmd_list):
+        if var == value_if:
+            cmd_list[cmd_idx] = cmd.replace(token, value_if)
+        
+        else:
+            cmd_list[cmd_idx] = cmd.replace(token, value_else)
+        
+        return cmd_list
+
+
+def apply_match(
+        cmd_list: List[str],
+        var: str,
+        token: str,
+        case: List[str],
+        value: List[str],
+) -> List[str]:
+    # Assertions
+    if len(case) != len(value):
+        raise LenghtError(
+            "case and value lists must have the same number of elements, but "
+            f"case has {len(case)} elements and value has {len(value)} "
+            "elements"
+        )
+
+    # Turn into sets to filter out repeated values
+    case = list(set(case))
+    value = list(set(value))
+
+    for cmd_idx, cmd in enumerate(cmd_list):
+        value_idx = case.index(var)
+        cmd_list[cmd_idx] = cmd.replace(token, value[value_idx])
+    
+    return cmd_list
+
+
 def get_apply_registy() -> dict:
     """Returns the registry of all functions that can be used withing the `run`
     key of a recipe `.yaml` file.
@@ -118,7 +162,9 @@ def get_apply_registy() -> dict:
     return {
         "date": apply_date,
         "dir_files": apply_dir_files,
+        "match": apply_match,
         "parent_dir": apply_parent_dir,
         "replace": apply_replace,
+        "replace_if": apply_replace_if,
         "repeat": apply_repeat
     }
