@@ -1,6 +1,9 @@
 import os
 from datetime import datetime
-from typing import List
+from typing import (
+    Any,
+    List
+)
 from .io import get_dir_files
 from .exceptions import LenghtError
 
@@ -112,44 +115,41 @@ def apply_repeat(cmd_list: List[str], n: int) -> List[str]:
     return cmd_list * n
 
 
-def apply_replace_if(
-        cmd_list: List[str],
-        var: str,
-        token: str,
-        value_if: str,
-        value_else: str
-) -> List[str]:
-    for cmd_idx, cmd in enumerate(cmd_list):
-        if var == value_if:
-            cmd_list[cmd_idx] = cmd.replace(token, value_if)
-        
-        else:
-            cmd_list[cmd_idx] = cmd.replace(token, value_else)
-        
-        return cmd_list
-
-
 def apply_match(
         cmd_list: List[str],
         var: str,
         token: str,
-        case: List[str],
-        value: List[str],
+        choices: List[str],
+        values: List[str],
 ) -> List[str]:
+    """Matches a variable value against multiple choices and replaces a token
+    in the command based on the matching value.
+
+    Args:
+        cmd_list (List[str]): Input commands.
+        var (str): Variable to match.
+        token (str): Token to replace.
+        choices (List[str]): Possible values for `var`.
+        values (List[str]): Values used to replace `token` based on the
+            matching value from `choices`.
+
+    Returns:
+        List[str]: List of modified commands.
+    """
     # Assertions
-    if len(case) != len(value):
+    if len(choices) != len(values):
         raise LenghtError(
             "case and value lists must have the same number of elements, but "
-            f"case has {len(case)} elements and value has {len(value)} "
+            f"case has {len(choices)} elements and value has {len(values)} "
             "elements"
         )
 
     # Turn into sets to filter out repeated values
-    case = list(set(case))
-    value = list(set(value))
+    choice = list(set(choices))
+    value = list(set(values))
 
     for cmd_idx, cmd in enumerate(cmd_list):
-        value_idx = case.index(var)
+        value_idx = choice.index(var)
         cmd_list[cmd_idx] = cmd.replace(token, value[value_idx])
     
     return cmd_list
@@ -165,6 +165,5 @@ def get_apply_registy() -> dict:
         "match": apply_match,
         "parent_dir": apply_parent_dir,
         "replace": apply_replace,
-        "replace_if": apply_replace_if,
         "repeat": apply_repeat
     }
