@@ -1,9 +1,6 @@
 import os
 from datetime import datetime
-from typing import (
-    Any,
-    List
-)
+from typing import List
 from .io import get_dir_files
 from .exceptions import LenghtError
 
