@@ -110,4 +110,4 @@ The current year is 2026
 
 Here you can see that both steps run correctly and show the expected values. The environment variable `MY_NAME` and the date modifier are both replaced as intended. If `MY_NAME` is not set, the default value `Juhani` is used.
 
-This is just a small glimpse of what `recp` can do. For further details about the sturcture of a `.yaml` recipe and the available modifiers, please go to the [Reference](#reference.md) section.
+This is just a small glimpse of what `recp` can do. For further details about the sturcture of a `.yaml` recipe and the available modifiers, please go to the [Reference](reference.md) section.
