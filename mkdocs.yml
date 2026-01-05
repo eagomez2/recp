@@ -3,6 +3,7 @@ nav:
   - About: index.md
   - Installation: install.md
   - Quickstart: quickstart.md
+  - Reference: reference.md
   - Changelog: https://github.com/eagomez2/recp/releases
   - License: license.md
 copyright: |

@@ -242,8 +242,7 @@ class Recipe:
                     
                     elif isinstance(cmd, dict):
                         cmd_list = [
-                            os.path.expanduser(os.path.expandvars(c))
-                            for c in cmd["cmd"]
+                            os.path.expanduser(os.path.expandvars(cmd["cmd"]))
                         ]
                         modifiers = cmd["apply"]
 

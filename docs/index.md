@@ -8,3 +8,5 @@ To begin using `recp`, refer to the guides below:
 
 - [Installation](install.md)
 - [Quickstart](quickstart.md)
+
+For a more detailed description of individual features, see the [Reference](reference.md) section.
