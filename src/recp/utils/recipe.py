@@ -177,7 +177,7 @@ class Recipe:
         for name in data["recipe"]:
             step_tags = data["recipe"][name].get("tag", [])
 
-            if any(t in step_tags for t in tag):
+            if all(t in step_tags for t in tag):
                 selected_steps.append(name)
         
         data["recipe"] = {
