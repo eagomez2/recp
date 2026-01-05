@@ -157,5 +157,72 @@ A day has 86400 seconds
 ```
 
 ## Modifiers
+Modifiers are functions that take a command as input and transform it into one or more commands according to some logic. They can be used to write more compact recipes and to add variation or dynamic behavior to your commands.
+
+To use a modifier, you can include then in the `run` key as follows:
+```yaml title="modifier_example.yaml"
+minimum_required_version: 0.1.0
+
+recipe:
+  step:
+    run:
+      - cmd: echo 'This message will be repeated multiple times'
+        apply:
+          - fn: repeat
+            args:
+              n: 3
+```
+In this case:
+
+- The command in the `run` key is now a `dict`.
+- The `apply` key contains all modifiers to be applied. It is a list where each item is a `dict` with a `fn` key (the modifier function) and an `args` key (the arguments passed to the modifier).
+- When multiple modifiers are defined, they are applied sequentially: the output of one modifier becomes the input to the next.
+
+In this example, the `repeat` modifier will be applied to the command, causing it to be run multiple times, resulting in:
+
+```bash
+Using recipe '/path/to/modifier_example.yaml' ...
+1 step(s) found
+Pre-processing recipe data ...
+Recipe pre-processing successfully completed
+Parsing step environments ...
+Step environments processing successfully completed
+Pre-processing recipe commands ...
+Recipe commands successfully completed
+Running commands ...
+[1/1] Running step 'step' ...
+      Command:     echo 'This message will be repeated multiple times'
+This message will be repeated multiple times
+      Command:     echo 'This message will be repeated multiple times'
+This message will be repeated multiple times
+      Command:     echo 'This message will be repeated multiple times'
+This message will be repeated multiple times
+```
+
+!!! info
+    Note that the commands are unwrapped before being run, thus, you can use `--dry-run` the preview the commands that will be run after all modifiers are applied.
+
+A list of supported modifiers is provided below. You can also implement your own by adding it to the `src/recp/utils/apply.py` file.
 
 ## Recipe shortcuts
+You can store frequently used recipes in a folder that `recp` reads automatically, and then refer to a recipe just by its name.
+
+To add a new recipe shortcut this way, simply use:
+```bash
+recp config --add /path/to/your/custom_recipe.yaml
+```
+
+Then this recipe can be run as:
+```bash
+recp run custom_recipe
+```
+
+You can see the folder location and other `recp` settings by running:
+```bash
+recp config
+```
+
+To change the default recipes folder you can use:
+```bash
+recp config --set recipes.dir /path/to/your/new/recipes/folder
+```
