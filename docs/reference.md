@@ -329,12 +329,49 @@ Replace one or multiple tokens by a given value.
 |-------------|--------|------------------------------------------------------------------------------------|
 | `**kwargs`  | `str`  | Keyword arguments where each key is the a token and each value is the token value. |
 
+Example:
+```yaml
+recipe:
+  step:
+    run:
+      - cmd: echo 'The dog arrived first, and then the cat came'
+        apply:
+          - fn: replace
+            args:
+              dog: bird
+              cat: fish
+```
+
+Result:
+```bash
+The bird arrived first, and then the fish came
+```
+
 ### repeat
 Repeats a command a given number of times.
 
-| Name | Type   | Description                           |
-|------|--------|---------------------------------------|
-| `n`  | `int`  | Numbr of times to repeat the command. |
+| Name | Type   | Description                            |
+|------|--------|----------------------------------------|
+| `n`  | `int`  | Number of times to repeat the command. |
+
+Example:
+```yaml
+recipe:
+  step:
+    run:
+      - cmd: echo 'I repeat myself'
+        apply:
+          - fn: repeat
+            args:
+              n: 3
+```
+
+Result:
+```bash
+I repeat myself
+I repeat myself
+I repeat myself
+```
 
 ## Recipe shortcuts
 You can store frequently used recipes in a folder that `recp` reads automatically, and then refer to a recipe just by its name.

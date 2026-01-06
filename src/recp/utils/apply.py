@@ -94,8 +94,10 @@ def apply_replace(cmd_list: List[str], **kwargs) -> List[str]:
     """
     for cmd_idx, cmd in enumerate(cmd_list):
         for k, v in kwargs.items():
-            cmd_list[cmd_idx] = cmd.replace(k, v)
-    
+            cmd = cmd.replace(k, v)
+        
+        cmd_list[cmd_idx] = cmd
+
     return cmd_list
 
 
