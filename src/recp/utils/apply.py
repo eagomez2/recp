@@ -30,7 +30,7 @@ def apply_dir_files(
         cmd_list: List[str],
         token: str,
         dir: str,
-        ext: str | List[str],
+        ext: str | List[str] = "*",
         recursive: bool = True
 ) -> List[str]:
     """Replaces a given token by the path to each file in a foleder.
@@ -142,8 +142,8 @@ def apply_match(
         )
 
     # Turn into sets to filter out repeated values
-    choice = list(set(choices))
-    value = list(set(values))
+    choice = list(dict.fromkeys(choices))  # Preserves order
+    value = list(dict.fromkeys(values))
 
     for cmd_idx, cmd in enumerate(cmd_list):
         value_idx = choice.index(var)

@@ -212,15 +212,55 @@ Replaces a token by a date in a specific format.
 | `token`  | `str`  | Token to be replaced.                      |            |
 | `format` | `str`  | Date format using `datetime` convention.   | `%Y-%m-%d` |
 
+Example:
+```yaml
+recipe:
+  step:
+    run:
+      - cmd: echo 'Today is __DATE__'
+        apply:
+          - fn: date
+            args:
+              token: __DATE__
+              format: "%Y-%m-%d"
+```
+
+Result:
+```bash
+Today is 2026-01-06
+```
+
 ### dir_files
 Expands a command creating one copy per file in a given folder.
 
-| Name        | Type                | Description                                |
-|-------------|---------------------|--------------------------------------------|
-| `token`     | `str`               | Token to be replaced.                      |
-| `dir`       | `str`               | Input folder.                              |
-| `ext`       | `str \| List[str]`  | Extension(s) to folder.                    |
-| `recursive` | `str`               | If `True`, `dir` is searched recursively.  |
+| Name        | Type                | Description                                           | Default |
+|-------------|---------------------|-------------------------------------------------------|---------|
+| `token`     | `str`               | Token to be replaced.                                 |         |
+| `dir`       | `str`               | Input folder.                                         |         |
+| `ext`       | `str | List[str]`   | Extension(s) to filter (`*` includes all extensions). | `*`     |
+| `recursive` | `str`               | If `True`, `dir` is searched recursively.             |         |
+
+Example:
+```yaml
+recipe:
+  step:
+    env:
+      DIR: &dir /path/to/my/dir
+    run:
+      - cmd: echo '$DIR contains file __FILE__'
+        apply:
+          - fn: dir_files
+            args:
+              token: __FILE__
+              dir: *dir
+```
+
+Result:
+```bash
+/path/to/my/dir contains file /path/to/my/dir/00_file.yaml
+/path/to/my/dir contains file /path/to/my/dir/01_file.yaml
+...
+```
 
 ### match
 Replaces a token value based on a matching value of a given variable.
@@ -232,6 +272,28 @@ Replaces a token value based on a matching value of a given variable.
 | `choices`   | `List[str]` | List of choices.                           |
 | `values`    | `List[str]` | List of values (correlative to `choices`). |
 
+Example:
+```yaml
+recipe:
+  step:
+    env:
+      CHOICE: &choice second
+    run:
+      - cmd: echo 'The $CHOICE choice is __MATCH__'
+        apply:
+          - fn: match
+            args:
+              var: *choice
+              token: __MATCH__
+              choices: ["first", "second", "third"]
+              values: ["bird", "cat", "dog"]
+```
+
+Result:
+```bash
+The second choice is cat
+```
+
 ### parent_dir
 Replaces a token by the path to the parent directory of a given path.
 
@@ -239,6 +301,26 @@ Replaces a token by the path to the parent directory of a given path.
 |----------|--------|--------------------------------------------------|
 | `token`  | `str`  | Token to be replaced.                            |
 | `path`   | `str`  | Path whose parent directory will be extracted.   |
+
+Example:
+```yaml
+recipe:
+  step:
+    env:
+      DIR: &dir /path/to/parent_dir/file.txt
+    run:
+      - cmd: echo 'The parent dir of $DIR is __PARENT_DIR__'
+        apply:
+          - fn: parent_dir
+            args:
+              token: __PARENT_DIR__
+              path: *dir
+```
+
+Result:
+```bash
+The parent dir of /path/to/parent_dir/file.txt is /path/to/parent_dir
+```
 
 ### replace
 Replace one or multiple tokens by a given value.
