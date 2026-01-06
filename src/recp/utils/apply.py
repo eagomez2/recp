@@ -69,7 +69,8 @@ def apply_index(
         cmd_list (List[str]): Input commands.
         token (str): Token to be replaced.
         offset (int): Offset applied to all values.
-        zfill (int | None): Number of zeros to pad on the left of the result.
+        zfill (int | None): Minimum width of the number, padded with leading
+            zeros if needed.
     
     Returns:
         List[str]: List of modified commands.

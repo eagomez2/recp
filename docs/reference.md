@@ -265,11 +265,11 @@ Result:
 ### index
 Replaces a token by the command index value.
 
-| Name     | Type  | Description                                       | Default |
-|----------|-------|---------------------------------------------------|---------|
-| `token`  | `str` | Token to replace.                                 |         |
-| `offset` | `int` | Offset applied to all values.                     | `0`     |
-| `zfill`  | `int` | Number of zeros to pad on the left of the result. | `0`     |
+| Name     | Type  | Description                                                       | Default |
+|----------|-------|-------------------------------------------------------------------|---------|
+| `token`  | `str` | Token to replace.                                                 |         |
+| `offset` | `int` | Offset applied to all values.                                     | `0`     |
+| `zfill`  | `int` | Minimum width of the number, padded with leading zeros if needed. | `0`     |
 
 Example:
 ```yaml
