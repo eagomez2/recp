@@ -322,6 +322,35 @@ Result:
 The parent dir of /path/to/parent_dir/file.txt is /path/to/parent_dir
 ```
 
+### randint
+Generated a random integer between `min` (included) and `max` (included).
+
+| Name    | Type         | Description                            |
+|---------|--------------|----------------------------------------|
+| `token` | `str`        | Token to replace.                      |
+| `min`   | `int`        | Minimum integer number to generate.    |
+| `max`   | `int`        | Maximum integer number to generate.    |
+| `seed`  | `int | None` | Random seed.                     |
+
+Example:
+```yaml
+recipe:
+  step:
+    run:
+      - cmd: echo 'The lottery winner is the number __WINNER__'
+        apply:
+          - fn: randint
+            args:
+              token: __WINNER__
+              min: 0
+              max: 100
+```
+
+Result:
+```bash
+The lottery winner is the number 90
+```
+
 ### replace
 Replace one or multiple tokens by a given value.
 

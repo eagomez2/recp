@@ -1,4 +1,5 @@
 import os
+import random
 from datetime import datetime
 from typing import List
 from .io import get_dir_files
@@ -77,6 +78,32 @@ def apply_parent_dir(
             token,
             os.path.dirname(os.path.normpath(path))
         )
+    
+    return cmd_list
+
+
+def apply_randint(
+        cmd_list: List[str],
+        token: str,
+        min: int,
+        max: int,
+        seed: int | None = None
+) -> List[str]:
+    """Replace a token by a random integer number within a range, including
+    both `min` and `max` within this range.
+    
+    Args:
+        cmd_list (List[str]): Input commands.
+        token (str): Token to be replaced.
+        min (int): Minimum `int` value to be generated.
+        max (int): Maximum `int` value to be generated.
+        seed (int | None): Random seed.
+    """
+    generator = random.Random(seed)
+
+    for cmd_idx, cmd in enumerate(cmd_list):
+        value = generator.randint(min, max)
+        cmd_list[cmd_idx] = cmd.replace(token, str(value))
     
     return cmd_list
 
@@ -163,6 +190,7 @@ def get_apply_registy() -> dict:
         "dir_files": apply_dir_files,
         "match": apply_match,
         "parent_dir": apply_parent_dir,
+        "randint": apply_randint,
         "replace": apply_replace,
         "repeat": apply_repeat
     }

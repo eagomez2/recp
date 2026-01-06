@@ -15,10 +15,10 @@ uv tool install recp
 ```
 
 # Quickstart
-...
+Check the quickstart guide here.
 
 # Documentation
-...
+See `recp` documentation online here.
 
 # Cite
 If this package contributed to your work, please consider citing it:
