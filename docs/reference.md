@@ -262,6 +262,39 @@ Result:
 ...
 ```
 
+### index
+Replaces a token by the command index value.
+
+| Name     | Type         | Description                    | Default |
+|----------|--------------|--------------------------------|---------|
+| `token`  | `str`        | Token to replace.              |         |
+| `offset` | `int`        | List of `str` to choosen from. | `0`     |
+| `zfill`  | `int | None` | Random seed.                   | `None`  |
+
+Example:
+```yaml
+recipe:
+  step:
+    run:
+      - cmd: echo 'Command number __INDEX__'
+        apply:
+          - fn: repeat
+            args:
+              n: 3
+          - fn: index
+            args:
+              token: __INDEX__
+              zfill: 2
+              offset: 1
+```
+
+Result:
+```bash
+Command number 01
+Command number 02
+Command number 03
+```
+
 ### match
 Replaces a token value based on a matching value of a given variable.
 

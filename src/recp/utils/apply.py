@@ -57,6 +57,34 @@ def apply_dir_files(
     return cmd_expanded_list
 
 
+def apply_index(
+        cmd_list: List[str],
+        token: str,
+        offset: int = 0,
+        zfill: int | None = None
+) -> List[str]:
+    """Replaces a given token by the command index value.
+    
+    Args:
+        cmd_list (List[str]): Input commands.
+        token (str): Token to be replaced.
+        zfill (int | None): Number of zeros to pad on the left of the result.
+    
+    Returns:
+        List[str]: List of modified commands.
+    """
+    for cmd_idx, cmd in enumerate(cmd_list):
+        if zfill:
+            cmd_list[cmd_idx] = cmd.replace(
+                token,
+                str(cmd_idx + offset).zfill(zfill)
+            )
+        else:
+            cmd_list[cmd_idx] = cmd.replace(token, str(cmd_idx + offset))
+    
+    return cmd_list
+
+
 def apply_parent_dir(
         cmd_list: List[str],
         token: str,
@@ -237,6 +265,7 @@ def get_apply_registy() -> dict:
     return {
         "date": apply_date,
         "dir_files": apply_dir_files,
+        "index": apply_index,
         "match": apply_match,
         "parent_dir": apply_parent_dir,
         "randchoice": apply_randchoice,
