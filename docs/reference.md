@@ -359,7 +359,7 @@ Example:
 recipe:
   step:
     run:
-      - cmd: echo 'I repeat myself'
+      - cmd: echo 'I tend to repeat myself'
         apply:
           - fn: repeat
             args:
@@ -368,9 +368,9 @@ recipe:
 
 Result:
 ```bash
-I repeat myself
-I repeat myself
-I repeat myself
+I tend to repeat myself
+I tend to repeat myself
+I tend to repeat myself
 ```
 
 ## Recipe shortcuts
