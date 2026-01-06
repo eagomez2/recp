@@ -39,10 +39,10 @@ A recipe file is a `.yaml` file where:
 Each step has:
 
 - A **required** name key (`first_step`) containing the information relative to that particular step.
-- An **optional** `tag` key containing a list of strings, each one corresponding to a tag that can be use to select a certain subset of steps to be run with the `--tag` option.
-- An **optional** `description` key containing a string that describes that the step does. This is only for documentation purposes, and will be printed to the terminal when the recipe is run.
+- An **optional** `tag` key containing a `list` of `str`, each one corresponding to a tag that can be use to select a certain subset of steps to be run with the `--tag` option.
+- An **optional** `description` key containing a `str` that describes that the step does. This is only for documentation purposes, and will be printed to the terminal when the recipe is run.
 - An **optional** `env` key containing environmental variables to be used in that step. The environmental variables of a specific step are isolated from all other steps. To share variable across steps you can use [yaml anchors and aliases](https://support.atlassian.com/bitbucket-cloud/docs/yaml-anchors/). Additionally, environmental variables can be defined directly in the `.yaml` file, or defined by the user when running the recipe. User defined variables can be configured using the `!input` constructor that has a mandatory `name` key, and an optional `default` key to define the default value, and an optional `required` key containing a `bool` value to specify whether that variable is required or optional.
-- A **required** `run` key that contains a list of the commands to be run. A command can be a `str` or a `dict` containing the `cmd` key and the `apply` key containing a list of modifiers to be applied to that command as a pre-processing step to generate one or multiple commands. Each modifier is defined by a `fn` key with the modifier function name, and an `args` key with the corresponding arguments.
+- A **required** `run` key that contains a `list` of the commands to be run. A command can be a `str` or a `dict` containing the `cmd` key and the `apply` key containing a `list` of modifiers to be applied to that command as a pre-processing step to generate one or multiple commands. Each modifier is defined by a `fn` key with the modifier function name, and an `args` key with the corresponding arguments.
 
 A recipe can be run using:
 ```bash
@@ -175,7 +175,7 @@ recipe:
 In this case:
 
 - The command in the `run` key is now a `dict`.
-- The `apply` key contains all modifiers to be applied. It is a list where each item is a `dict` with a `fn` key (the modifier function) and an `args` key (the arguments passed to the modifier).
+- The `apply` key contains all modifiers to be applied. It is a `list` where each item is a `dict` with a `fn` key (the modifier function) and an `args` key (the arguments passed to the modifier).
 - When multiple modifiers are defined, they are applied sequentially: the output of one modifier becomes the input to the next.
 
 In this example, the `repeat` modifier will be applied to the command, causing it to be run multiple times, resulting in:
@@ -200,9 +200,59 @@ This message will be repeated multiple times
 ```
 
 !!! info
-    Note that the commands are unwrapped before being run, thus, you can use `--dry-run` the preview the commands that will be run after all modifiers are applied.
+    The commands are unwrapped before being run, thus, you can use `--dry-run` the preview the commands that will be run after all modifiers are applied.
 
 A list of supported modifiers is provided below. You can also implement your own by adding it to the `src/recp/utils/apply.py` file.
+
+### date
+Replaces a token by a date in a specific format.
+
+| Name     | Type   | Description                                | Default    |
+|----------|--------|--------------------------------------------|------------|
+| `token`  | `str`  | Token to be replaced.                      |            |
+| `format` | `str`  | Date format using `datetime` convention.   | `%Y-%m-%d` |
+
+### dir_files
+Expands a command creating one copy per file in a given folder.
+
+| Name        | Type                | Description                                |
+|-------------|---------------------|--------------------------------------------|
+| `token`     | `str`               | Token to be replaced.                      |
+| `dir`       | `str`               | Input folder.                              |
+| `ext`       | `str \| List[str]`  | Extension(s) to folder.                    |
+| `recursive` | `str`               | If `True`, `dir` is searched recursively.  |
+
+### match
+Replaces a token value based on a matching value of a given variable.
+
+| Name        | Type        | Description                                |
+|-------------|-------------|--------------------------------------------|
+| `var`       | `str`       | Variable to match.                         |
+| `token`     | `str`       | Token to be replaced.                      |
+| `choices`   | `List[str]` | List of choices.                           |
+| `values`    | `List[str]` | List of values (correlative to `choices`). |
+
+### parent_dir
+Replaces a token by the path to the parent directory of a given path.
+
+| Name     | Type   | Description                                      |
+|----------|--------|--------------------------------------------------|
+| `token`  | `str`  | Token to be replaced.                            |
+| `path`   | `str`  | Path whose parent directory will be extracted.   |
+
+### replace
+Replace one or multiple tokens by a given value.
+
+| Name        | Type   | Description                                                                        |
+|-------------|--------|------------------------------------------------------------------------------------|
+| `**kwargs`  | `str`  | Keyword arguments where each key is the a token and each value is the token value. |
+
+### repeat
+Repeats a command a given number of times.
+
+| Name | Type   | Description                           |
+|------|--------|---------------------------------------|
+| `n`  | `int`  | Numbr of times to repeat the command. |
 
 ## Recipe shortcuts
 You can store frequently used recipes in a folder that `recp` reads automatically, and then refer to a recipe just by its name.
