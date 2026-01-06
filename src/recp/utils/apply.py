@@ -61,26 +61,24 @@ def apply_index(
         cmd_list: List[str],
         token: str,
         offset: int = 0,
-        zfill: int | None = None
+        zfill: int = 0
 ) -> List[str]:
     """Replaces a given token by the command index value.
     
     Args:
         cmd_list (List[str]): Input commands.
         token (str): Token to be replaced.
+        offset (int): Offset applied to all values.
         zfill (int | None): Number of zeros to pad on the left of the result.
     
     Returns:
         List[str]: List of modified commands.
     """
     for cmd_idx, cmd in enumerate(cmd_list):
-        if zfill:
-            cmd_list[cmd_idx] = cmd.replace(
-                token,
-                str(cmd_idx + offset).zfill(zfill)
-            )
-        else:
-            cmd_list[cmd_idx] = cmd.replace(token, str(cmd_idx + offset))
+        cmd_list[cmd_idx] = cmd.replace(
+            token,
+            str(cmd_idx + offset).zfill(zfill)
+        )
     
     return cmd_list
 
