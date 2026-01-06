@@ -322,8 +322,35 @@ Result:
 The parent dir of /path/to/parent_dir/file.txt is /path/to/parent_dir
 ```
 
+### randchoice
+Picks a random choice from a list.
+
+| Name      | Type            | Description                    |
+|-----------|-----------------|--------------------------------|
+| `token`   | `str`           | Token to replace.              |
+| `choices` | `List[str]`     | List of `str` to choosen from. |
+| `seed`    | `int | None`    | Random seed.                   |
+
+Example:
+```yaml
+recipe:
+  step:
+    run:
+      - cmd: echo 'My pet is a __CHOICE__'
+        apply:
+          - fn: randchoice
+            args:
+              token: __CHOICE__
+              choices: ["bird", "cat", "dog"]
+```
+
+Result:
+```bash
+My pet is a bird
+```
+
 ### randint
-Generated a random integer between `min` (included) and `max` (included).
+Generates a random integer between `min` (included) and `max` (included).
 
 | Name    | Type         | Description                            |
 |---------|--------------|----------------------------------------|

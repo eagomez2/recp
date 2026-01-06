@@ -82,6 +82,29 @@ def apply_parent_dir(
     return cmd_list
 
 
+def apply_randchoice(
+        cmd_list: List[str],
+        token: str,
+        choices: List[str],
+        seed: int | None = None
+) -> List[str]:
+    """Replace a token by a random choice from a list of choices.
+    
+    Args:
+        cmd_list (List[str]): Input commands.
+        token (str): Token to be replaced.
+        choices (List[str]): List of choices.
+        seed (int | None): Random seed.
+    """
+    generator = random.Random(seed)
+
+    for cmd_idx, cmd in enumerate(cmd_list):
+        value = generator.choice(choices)
+        cmd_list[cmd_idx] = cmd.replace(token, str(value))
+    
+    return cmd_list
+
+
 def apply_randint(
         cmd_list: List[str],
         token: str,
@@ -216,6 +239,7 @@ def get_apply_registy() -> dict:
         "dir_files": apply_dir_files,
         "match": apply_match,
         "parent_dir": apply_parent_dir,
+        "randchoice": apply_randchoice,
         "randint": apply_randint,
         "randfloat": apply_randfloat,
         "replace": apply_replace,
