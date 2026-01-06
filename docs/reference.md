@@ -351,6 +351,35 @@ Result:
 The lottery winner is the number 90
 ```
 
+### randfloat
+Generated a random float-point number within the `[min, max)` range.
+
+| Name    | Type         | Description                                            |
+|---------|--------------|--------------------------------------------------------|
+| `token` | `str`        | Token to replace.                                      |
+| `min`   | `int`        | Minimum floating-point number to generate (inclusive). |
+| `max`   | `int`        | Maximum floating-point number to generate (exclusive). |
+| `seed`  | `int | None` | Random seed.                                           |
+
+Example:
+```yaml
+recipe:
+  step:
+    run:
+      - cmd: echo 'The generated floating-point number is __FLOAT__'
+        apply:
+          - fn: randfloat
+            args:
+              token: __FLOAT__
+              min: 0.0
+              max: 1.0
+```
+
+Result:
+```bash
+The generated floating-point number is 0.4770061600654977
+```
+
 ### replace
 Replace one or multiple tokens by a given value.
 

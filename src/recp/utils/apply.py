@@ -108,6 +108,32 @@ def apply_randint(
     return cmd_list
 
 
+def apply_randfloat(
+        cmd_list: List[str],
+        token: str,
+        min: float,
+        max: float,
+        seed: int | None = None
+) -> List[str]:
+    """Replace a token by a random floating-point number within the
+    `[min, max)` range.
+    
+    Args:
+        cmd_list (List[str]): Input commands.
+        token (str): Token to be replaced.
+        min (float): Minimum `float` value to be generated (inclusive).
+        max (float): Maximum `float` value to be generated (exclusive).
+        seed (int | None): Random seed.
+    """
+    generator = random.Random(seed)
+
+    for cmd_idx, cmd in enumerate(cmd_list):
+        value = generator.uniform(min, max)
+        cmd_list[cmd_idx] = cmd.replace(token, str(value))
+    
+    return cmd_list
+
+
 def apply_replace(cmd_list: List[str], **kwargs) -> List[str]:
     """Replace placeholders by specified values.
     
@@ -191,6 +217,7 @@ def get_apply_registy() -> dict:
         "match": apply_match,
         "parent_dir": apply_parent_dir,
         "randint": apply_randint,
+        "randfloat": apply_randfloat,
         "replace": apply_replace,
         "repeat": apply_repeat
     }
