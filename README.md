@@ -18,7 +18,10 @@ uv tool install recp
 Check the quickstart guide here.
 
 # Documentation
-See `recp` documentation online here.
+The `recp` documentation is available online [here](#). You can also view it locally by running:
+```bash
+mkdocs serve
+```
 
 # Cite
 If this package contributed to your work, please consider citing it:
