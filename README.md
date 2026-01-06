@@ -15,7 +15,7 @@ uv tool install recp
 ```
 
 # Quickstart
-Check the quickstart guide here.
+Check the quickstart guide [here](https://eagomez2.github.io/recp/).
 
 # Documentation
 The `recp` documentation is available online [here](https://eagomez2.github.io/recp/). You can also view it locally by running:
