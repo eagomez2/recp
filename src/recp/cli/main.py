@@ -3,6 +3,7 @@ import sys
 import argparse
 from datetime import datetime
 from importlib.metadata import version
+from ..utils.display import exit_error
 from ..utils.recipe import Recipe
 from ..utils.config import PackageConfig
 
@@ -117,7 +118,7 @@ def main() -> None:
                     )
                 
                 else:
-                    raise FileNotFoundError(
+                    exit_error(
                         f"Recipe {args.recipe!r} not found in recipes folder "
                         f"{config.recipes_dir!r}"
                     )

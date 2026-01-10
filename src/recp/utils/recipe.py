@@ -9,11 +9,8 @@ from typing import (
 from importlib.metadata import version as package_version
 from packaging.version import Version
 from .collections import temp_env
-from .exceptions import (
-    MinimumVersionRequirementError,
-    RequiredValueNotFoundError
-)
 from .apply import get_apply_registy
+from .display import exit_error
 
 
 class Recipe:
@@ -57,11 +54,11 @@ class Recipe:
             node: yaml.nodes.ScalarNode
     ) -> int | float:
         if not self.allow_expr:
-            raise ValueError(
-            f"Invalid !expr constructor at line {node.start_mark.line + 1} "
-            f"in recipe file {self.file!r}. The !expr constructor is only "
-            "allowed when the --unsafe option is enabled."
-        )
+            exit_error(
+                f"Invalid !expr constructor at line {node.start_mark.line + 1}"
+                f" in recipe file {self.file!r}. The !expr constructor is only"
+                " allowed when the --unsafe option is enabled."
+            )
 
         expr = loader.construct_scalar(node)
         return eval(expr)
@@ -87,7 +84,7 @@ class Recipe:
             }
         
         else:
-            raise ValueError(
+            exit_error(
                 f"!input constructor found on a {node.__class__.__name__!r} at"
                 f" line {node.start_mark.line + 1} in recipe file "
                 f"{self.file!r}. !input constructors only support str or dict "
@@ -137,7 +134,7 @@ class Recipe:
             )
 
             if not self.PACKAGE_VERSION >= minimum_required_version:  # noqa: SIM300
-                raise MinimumVersionRequirementError(
+                exit_error(
                     f"This recipe requires recp >= {minimum_required_version} "
                     f" but current recp version is {self.PACKAGE_VERSION}"
                 )
@@ -150,13 +147,13 @@ class Recipe:
         """
         # Check 'recipe' key exists
         if self.ROOT_KEY not in data:
-            raise KeyError(f"Key {self.ROOT_KEY!r} not found in recipe file")
+            exit_error(f"Key {self.ROOT_KEY!r} not found in recipe file")
         
         # Check step keys
         for name, data in data[self.ROOT_KEY].items():
             for mandatory_key in self.MANDATORY_STEP_KEYS:
                 if mandatory_key not in data:
-                    raise KeyError(
+                    exit_error(
                         f"Key {mandatory_key!r} not found in step {name!r}"
                     )
     
@@ -206,7 +203,7 @@ class Recipe:
                     ):
                         if (var := os.environ.get(v["name"])) is None:
                             if v.get("required"):
-                                raise RequiredValueNotFoundError(
+                                exit_error(
                                     f"Environmental variable {v['name']!r} is "
                                     f"marked in {step_name!r} as required but "
                                     "was not provided"
@@ -250,7 +247,7 @@ class Recipe:
                             fn = self._apply_registry.get(modifier["fn"], None)
 
                             if fn is None:
-                                raise ValueError(
+                                exit_error(
                                     f"Function {modifier['fn']!r} applied in "
                                     f"command #{cmd_idx} of step {step_name!r}"
                                     " not found"
@@ -261,7 +258,7 @@ class Recipe:
                         cmd_seq += cmd_list
     
                     else:
-                        raise TypeError(
+                        exit_error(
                             f"Command #{cmd_idx} of step is of type "
                             f"{cmd.__class__.__name__!r}, but only str or dict"
                             " commands are supported"
