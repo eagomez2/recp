@@ -92,7 +92,7 @@ def main() -> None:
 
     match args.action:
         case "config":
-            config = PackageConfig(app_name="recp", app_author="Esteban Gómez")
+            config = PackageConfig(app_name="recp")
 
             if args.set:
                 config.set_param(param=args.set[0], value=args.set[1])
@@ -106,10 +106,7 @@ def main() -> None:
         case "run":
             # Check if recipe is a preset
             if not args.recipe.endswith(".yaml"):
-                config = PackageConfig(
-                    app_name="recp",
-                    app_author="Esteban Gómez"
-                )
+                config = PackageConfig(app_name="recp")
 
                 if os.path.isfile(
                     os.path.join(config.recipes_dir, args.recipe + ".yaml")
