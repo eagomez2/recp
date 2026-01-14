@@ -1,7 +1,7 @@
 [project]
 name = "recp"
 authors = [{name = "Esteban Gómez", email = "esteban.gomezmellado@aalto.fi"}]
-version = "0.1.1"
+version = "0.1.2"
 description = "A tool for running command line recipes"
 readme = "README.md"
 license = {file = "LICENSE"}
