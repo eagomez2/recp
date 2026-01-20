@@ -245,6 +245,9 @@ def apply_match(
             f"case has {len(choices)} elements and value has {len(values)} "
             "elements"
         )
+    
+    choices = [str(c) for c in choices]
+    var = os.path.expanduser(os.path.expandvars(var))
 
     # Turn into sets to filter out repeated values
     choice = list(dict.fromkeys(choices))  # Preserves order
