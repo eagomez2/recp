@@ -9,27 +9,24 @@ recipe:
   first_step:
     tag:
       - first
-    
+
     description: >
         Description of the first step
-    
+
     env:
         USER_NAME: !input
             name: MY_NAME
             default: Juhani
             required: false 
-    
+
     run:
-        - echo 'Hello from $SOME_ENV_VAR
-        - cmd: echo "My name is XX and today is MM"
+        - echo 'Hello from recp'
+        - cmd: echo "My name is $USER_NAME and today is {DAY}"
           apply:
             - fn: date
               args:
-                token: "{YEAR}"
-                format: "%Y"
-            - fn: replace
-              args:
-
+                token: "{DAY}"
+                format: "%A"
 ```
 A recipe file is a `.yaml` file where:
 
