@@ -93,6 +93,21 @@ class Recipe:
 
         return map
     
+    def _yaml_prompt_constructor(
+            self,
+            loader: yaml.loader.SafeLoader,
+            node: yaml.nodes.MappingNode
+    ) -> str:
+        map = loader.construct_mapping(node)
+        map["choices"] = map.get("choices")
+        map["__constructor__"] = "!prompt"
+
+        # It should be a list of str
+        if map["choices"] is not None and not isinstance(map["choices"], list):
+            raise TypeError("'choices' should be a list of str choices")
+
+        return map
+    
     def _yaml_split_constructor(
             self,
             loader: yaml.loader.SafeLoader,
@@ -113,6 +128,10 @@ class Recipe:
         # Add custom constructors
         yaml.SafeLoader.add_constructor("!expr", self._yaml_expr_constructor)
         yaml.SafeLoader.add_constructor("!input", self._yaml_input_constructor)
+        yaml.SafeLoader.add_constructor(
+            "!prompt",
+            self._yaml_prompt_constructor
+        )
         yaml.SafeLoader.add_constructor("!split", self._yaml_split_constructor)
 
         # Open .yaml file
@@ -214,6 +233,26 @@ class Recipe:
                         
                         else:
                             env[k] = var
+                    
+                    # !prompt constructor
+                    if (
+                        isinstance(v, dict)
+                        and v["__constructor__"] == "!prompt"
+                    ):
+                        if v["choices"] is not None:
+                            choices_repr = " [" + "/".join(v["choices"]) + "]"
+
+                            while True:
+                                choice = input(
+                                    f"{v['message']}{choices_repr}: "
+                                )
+
+                                if choice in v["choices"]:
+                                    env[k] = choice
+                                    break
+                        
+                        else:
+                            env[k] = input(f"{v['message']}: ")
         
         return data
     
