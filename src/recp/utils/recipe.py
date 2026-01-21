@@ -100,6 +100,7 @@ class Recipe:
     ) -> str:
         map = loader.construct_mapping(node)
         map["choices"] = map.get("choices")
+        map["default"] = map.get("default")
         map["__constructor__"] = "!prompt"
 
         # It should be a list of str
@@ -107,7 +108,7 @@ class Recipe:
             raise TypeError("'choices' should be a list of str choices")
 
         return map
-    
+
     def _yaml_split_constructor(
             self,
             loader: yaml.loader.SafeLoader,
@@ -240,19 +241,50 @@ class Recipe:
                         and v["__constructor__"] == "!prompt"
                     ):
                         if v["choices"] is not None:
-                            choices_repr = " [" + "/".join(v["choices"]) + "]"
+                            # Check default is valid if any
+                            if v["default"] is not None:
+                                if v["default"] not in v["choices"]:
+                                    raise ValueError(
+                                        f"default choice {v['default']!r} not "
+                                        "found in choices"
+                                    )
+                                
+                                choices_repr = [
+                                    c if c != v["default"] else f"*{c}"
+                                    for c in v["choices"]
+                                ]
+                                choices_repr =\
+                                    " [" + "/".join(choices_repr) + "]"
+                            
+                            else:
+                                choices_repr =\
+                                    " [" + "/".join(v["choices"]) + "]"
 
                             while True:
                                 choice = input(
                                     f"{v['message']}{choices_repr}: "
                                 )
 
+                                if choice == "" and v["default"] is not None:
+                                    choice = v["default"]
+
                                 if choice in v["choices"]:
                                     env[k] = choice
                                     break
                         
                         else:
-                            env[k] = input(f"{v['message']}: ")
+                            if v.get("default") is not None:
+                                response = input(
+                                    f"{v['message']} [*{v['default']}]: "
+                                )
+                                
+                                env[k] = (
+                                    v['default'] if response == ""
+                                    else response
+                                )
+                            
+                            else:
+                                env[k] = input(f"{v['message']}: ")
         
         return data
     
