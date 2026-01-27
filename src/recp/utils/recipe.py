@@ -27,7 +27,7 @@ class Recipe:
     ROOT_KEY = "recipe"
     MINIMUM_REQUIRED_VERSION_KEY = "minimum_required_version"
     MANDATORY_STEP_KEYS = ("run",)
-    OPTIONAL_STEP_KEYS = ("tag", "description", "env")
+    OPTIONAL_STEP_KEYS = ("tag", "description", "env", "cwd")
     PACKAGE_VERSION = Version(package_version("recp")) 
     def __init__(
             self,
@@ -425,13 +425,21 @@ class Recipe:
                     f"{indent}{'Description:':<{13}}"
                     f"{step['description']}".rstrip("\n")
                 )
+            
+            if step.get("cwd") is not None:
+                with temp_env(step.get("env", {})):  
+                    cwd = os.path.expanduser(os.path.expandvars(step["cwd"]))
+                    print(f"{indent}{'CWD:':<{13}}{cwd}")
+            
+            else:
+                cwd = None
 
             for cmd in step["run"]:
                 print(f"{indent}{'Command:':<{13}}{cmd}")
 
                 if not dry_run: 
                     if ignore_errors:
-                        subprocess.run(cmd, shell=True)
+                        subprocess.run(cmd, shell=True, cwd=cwd)
                     
                     else:
-                        subprocess.run(cmd, shell=True, check=True)
+                        subprocess.run(cmd, shell=True, cwd=cwd, check=True)
