@@ -1,7 +1,10 @@
 import os
 import random
 from datetime import datetime
-from typing import List
+from typing import (
+    Dict,
+    List
+)
 from .io import get_dir_files
 from .exceptions import LenghtError
 
@@ -204,6 +207,45 @@ def apply_replace(cmd_list: List[str], **kwargs) -> List[str]:
     return cmd_list
 
 
+def apply_expand(
+        cmd_list: List[str],
+        kwargs_dict: Dict[str, List[str]]
+) -> List[str]:
+    """Generate multiple command copies by replacing specified tokens with
+    values defined in `kwargs_dict`.
+
+    Args:
+        cmd_list (List[str]): Input commands.
+        kwargs_dict (dict): A `dict` where each key corresponds to a token
+            in the commands to be replaced. Each value is a `list` of `str`
+            values to replace the token. All lists associated with keys should 
+            have the same length to ensure consistent expansion.
+
+    Returns:
+        List[str]: List of modified commands.
+    """ 
+    # Check all keys have the same length
+    if len({len(v) for v in kwargs_dict.values()}) != 1:
+        raise ValueError("All values should have the same number of items")
+    
+    # Number of commands to generate
+    num_cmd_instances = len(list(kwargs_dict.values())[0])
+    
+    cmd_list_expanded = []
+
+    for cmd in cmd_list:
+        for instance_idx in range(num_cmd_instances):
+            expanded_cmd = cmd
+
+            for token, values in kwargs_dict.items():
+                expanded_cmd =\
+                    expanded_cmd.replace(token, str(values[instance_idx]))
+            
+            cmd_list_expanded.append(expanded_cmd)
+            
+    return cmd_list_expanded
+
+
 def apply_repeat(cmd_list: List[str], n: int) -> List[str]:
     """Repeat a command or command list `n` times.
     
@@ -267,6 +309,7 @@ def get_apply_registy() -> dict:
     return {
         "date": apply_date,
         "dir_files": apply_dir_files,
+        "expand": apply_expand,
         "index": apply_index,
         "match": apply_match,
         "parent_dir": apply_parent_dir,
