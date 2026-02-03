@@ -1,10 +1,7 @@
 import os
 import random
 from datetime import datetime
-from typing import (
-    Dict,
-    List
-)
+from typing import List
 from .io import get_dir_files
 from .exceptions import LenghtError
 
