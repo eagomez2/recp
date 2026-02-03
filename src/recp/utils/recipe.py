@@ -55,13 +55,14 @@ class Recipe:
 
         for _ in range(max_iters):
             if current in seen:
-                raise ValueError("Cyclic path expansion detected")
+                raise RecursionError("Cyclic path expansion detected")
 
             seen.add(current)
             next = os.path.expanduser(os.path.expandvars(current))
 
             if next == current:
                 break
+
             current = next
 
         return current
