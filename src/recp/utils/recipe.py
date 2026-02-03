@@ -47,6 +47,24 @@ class Recipe:
 
         # Cache apply registry
         self._apply_registry = get_apply_registy()
+    
+    @staticmethod
+    def expandall_recursive(path: str, max_iters: int = 10) -> str:
+        seen = set()
+        current = path
+
+        for _ in range(max_iters):
+            if current in seen:
+                raise ValueError("Cyclic path expansion detected")
+
+            seen.add(current)
+            next = os.path.expanduser(os.path.expandvars(current))
+
+            if next == current:
+                break
+            current = next
+
+        return current
 
     def _yaml_expr_constructor(
             self,
@@ -305,12 +323,14 @@ class Recipe:
                 for cmd_idx, cmd in enumerate(step["run"]):
                     if isinstance(cmd, str):
                         cmd_seq.append(
-                            os.path.expanduser(os.path.expandvars(cmd))
+                            # os.path.expanduser(os.path.expandvars(cmd))
+                            self.expandall_recursive(cmd)
                         )
                     
                     elif isinstance(cmd, dict):
                         cmd_list = [
-                            os.path.expanduser(os.path.expandvars(cmd["cmd"]))
+                            # os.path.expanduser(os.path.expandvars(cmd["cmd"]))
+                            self.expandall_recursive(cmd["cmd"])
                         ]
                         modifiers = cmd["apply"]
 
@@ -428,7 +448,7 @@ class Recipe:
             
             if step.get("cwd") is not None:
                 with temp_env(step.get("env", {})):  
-                    cwd = os.path.expanduser(os.path.expandvars(step["cwd"]))
+                    cwd = self.expandall_recursive(step["cwd"])
                     print(f"{indent}{'CWD:':<{13}}{cwd}")
             
             else:
