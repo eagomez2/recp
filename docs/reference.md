@@ -507,6 +507,37 @@ I tend to repeat myself
 I tend to repeat myself
 ```
 
+### run_if
+Runs a command only if a variable matches a given value.
+
+| Name    | Type   | Description                            |
+|---------|--------|----------------------------------------|
+| `var`   | `str`  | Number of times to repeat the command. |
+| `value` | `str`  | Expected value to run the command.     |
+
+Example:
+```yaml
+recipe:
+  step:
+    env:
+      RUN: !prompt
+        message: Run command?
+        choices: ["y", "n"]
+        default: "y"
+    run:
+      - cmd: echo 'The command has been executed'
+        apply:
+          - fn: run_if
+            args:
+              var: $RUN
+              value: y
+```
+
+Result:
+```bash
+The command has been executed
+```
+
 ## Recipe shortcuts
 You can store frequently used recipes in a folder that `recp` reads automatically, and then refer to a recipe just by its name.
 
