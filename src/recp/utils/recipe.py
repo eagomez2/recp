@@ -49,8 +49,11 @@ class Recipe:
         self._apply_registry = get_apply_registy()
     
     @staticmethod
-    def expandall_recursive(path: str, max_iters: int = 10) -> str:
-        seen = set()
+    def expandall_recursive(path: str | List[str], max_iters: int = 10) -> str:
+        if isinstance(path, list):
+            return [Recipe.expandall_recursive(p, max_iters) for p in path]
+
+        seen = set() 
         current = path
 
         for _ in range(max_iters):

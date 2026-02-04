@@ -442,7 +442,7 @@ Replace one or multiple tokens by a given value.
 
 | Name        | Type   | Description                                                                        |
 |-------------|--------|------------------------------------------------------------------------------------|
-| `**kwargs`  | `str`  | Keyword arguments where each key is the a token and each value is the token value. |
+| `**kwargs`  | `str`  | Keyword arguments where each key is the a token and each value is the token value.<br>If a `list` of multiple values is passed, one command per value will be generated.   |
 
 Example:
 ```yaml
@@ -460,6 +460,25 @@ recipe:
 Result:
 ```bash
 The bird arrived first, and then the fish came
+```
+
+Example (multiple values):
+```yaml
+recipe:
+  step:
+    run:
+      - cmd: echo 'The dog arrived first, and then the cat came'
+        apply:
+          - fn: replace
+            args:
+              dog: [bird, lizard]
+              cat: [fish, wizard]
+```
+
+Result:
+```bash
+The bird arrived first, and then the fish came
+The lizard arrived first, and then the wizard came
 ```
 
 ### repeat
