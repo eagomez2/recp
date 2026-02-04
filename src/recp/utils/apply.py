@@ -285,6 +285,20 @@ def apply_match(
     return cmd_list
 
 
+def apply_run_if(cmd_list: List[str], var: str, value: str) -> List[str]:
+    """Conditionally run commands based on a variable's value.
+
+    Args:
+        cmd_list (List[str]): Input commands.
+        var (str): Variable to compare.
+        value (str): Value required to proceed.
+    
+    Returns:
+        List[str]: List of modified commands.
+    """
+    return cmd_list if var == str(value) else []
+
+
 def get_apply_registy() -> dict:
     """Returns the registry of all functions that can be used withing the `run`
     key of a recipe `.yaml` file.
@@ -299,5 +313,6 @@ def get_apply_registy() -> dict:
         "randint": apply_randint,
         "randfloat": apply_randfloat,
         "replace": apply_replace,
-        "repeat": apply_repeat
+        "repeat": apply_repeat,
+        "run_if": apply_run_if,
     }
