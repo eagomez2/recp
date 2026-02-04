@@ -6,6 +6,27 @@ from .io import get_dir_files
 from .exceptions import LenghtError
 
 
+def apply_basename(
+        cmd_list: List[str],
+        token: str,
+        path: str
+) -> List[str]:
+    """Replaces a given token by the parent path of a given path.
+
+    Args:
+        cmd_list (List[str]): Input commands.
+        token (str): The token within the command strings to be replaced.
+        path (str): File system path from which the basename will be extracted.
+    
+    Returns:
+        List[str]: List of modified commands.
+    """
+    for cmd_idx, cmd in enumerate(cmd_list):
+        cmd_list[cmd_idx] = cmd.replace(token, os.path.basename(path))
+    
+    return cmd_list
+
+
 def apply_date(
         cmd_list: List[str],
         token: str,
@@ -304,6 +325,7 @@ def get_apply_registy() -> dict:
     key of a recipe `.yaml` file.
     """
     return {
+        "basename": apply_basename,
         "date": apply_date,
         "dir_files": apply_dir_files,
         "index": apply_index,
