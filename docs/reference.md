@@ -111,6 +111,97 @@ Running commands ...
 print user variable: Juhani
 ```
 
+### !prompt constructor
+
+!!! info
+    This constructor was introduced in version `0.1.2`, so update your `minimum_required_version` if that key is present.
+
+The `!prompt` constructor works like `!input`, but instead of directly including the variable in your command, it creates a user prompt for entering a value or choice. It's usually used within the `env` key, as shown below.
+
+```yaml title="prompt_constructor_example.yaml"
+minimum_required_version: 0.1.2
+
+recipe:
+  step:
+    env:
+      USER_VAR: !prompt
+        message: Introduce variable value
+    run:
+      - "echo 'print user variable: $USER_VAR'"
+```
+
+In this case `message` is a **required** key containing the message displayed to the user. You can run the recipe with:
+```bash
+recp run /path/to/prompt_constructor_example.yaml
+```
+
+The result will depend on what the user typed before pressing `enter`.
+```bash
+1 step(s) found
+Pre-processing recipe data ...
+Recipe pre-processing successfully completed
+Parsing step environments ...
+Introduce variable value: Juhani
+Step environments processing successfully completed
+Pre-processing recipe commands ...
+Recipe commands successfully completed
+Running commands ...
+[1/1] Running step 'step' ...
+      Command:     echo 'print user variable: Juhani'
+print user variable: Juhani
+```
+
+Additionally, the input can be configured to be a set of choices:
+```yaml title="prompt_constructor_example_choices.yaml"
+minimum_required_version: 0.1.2
+
+recipe:
+  step:
+    env:
+      CHOICE: !prompt
+        message: Favourite pet
+        choices:
+          - cat
+          - dog
+    run:
+      - "echo 'You are a $CHOICE person'
+```
+
+In this case, the user can only type one of the available choices. If they enter something else, the program will prompt them to select a valid choice again. For example, if you type `cat` and `press` enter, you will get the following output:
+```bash
+1 step(s) found
+Pre-processing recipe data ...
+Recipe pre-processing successfully completed
+Parsing step environments ...
+Favourite pet [cat/dog]: cat
+Step environments processing successfully completed
+Pre-processing recipe commands ...
+Recipe commands successfully completed
+Running commands ...
+[1/1] Running step 'step' ...
+      Command:     echo 'You are a cat person'
+You are a cat person
+```
+
+Additionally, you can set a default choice using the `default` key:
+```yaml title="prompt_constructor_example_choices_default.yaml"
+minimum_required_version: 0.1.2
+
+recipe:
+  step:
+    env:
+      CHOICE: !prompt
+        message: Favourite pet
+        choices:
+          - cat
+          - dog
+        default: cat
+    run:
+      - "echo 'You are a $CHOICE person'
+```
+
+In this case, the option prefixed with a `*` in the prompt will be selected if the user presses enter without explicitly choosing another option.
+
 ### !expr constructor
 The `!expr` constructor allows using `python` expressions to be evaluated at runtime.
 
