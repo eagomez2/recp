@@ -324,13 +324,11 @@ class Recipe:
                 for cmd_idx, cmd in enumerate(step["run"]):
                     if isinstance(cmd, str):
                         cmd_seq.append(
-                            # os.path.expanduser(os.path.expandvars(cmd))
                             self.expandall_recursive(cmd)
                         )
                     
                     elif isinstance(cmd, dict):
                         cmd_list = [
-                            # os.path.expanduser(os.path.expandvars(cmd["cmd"]))
                             self.expandall_recursive(cmd["cmd"])
                         ]
                         modifiers = cmd["apply"]
@@ -345,6 +343,12 @@ class Recipe:
                                     " not found"
                                 )
                             
+                            # Solve modifier env variables
+                            modifier["args"] = {
+                                k: self.expandall_recursive(v)
+                                for k, v in modifier["args"].items()
+                            }
+
                             cmd_list = fn(cmd_list, **modifier["args"])
 
                         cmd_seq += cmd_list
