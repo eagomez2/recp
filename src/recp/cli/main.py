@@ -3,6 +3,7 @@ import sys
 import argparse
 from datetime import datetime
 from importlib.metadata import version
+from ..utils.display import exit_error
 from ..utils.recipe import Recipe
 from ..utils.config import PackageConfig
 
@@ -92,7 +93,7 @@ def main() -> None:
 
     match args.action:
         case "config":
-            config = PackageConfig(app_name="recp", app_author="Esteban Gómez")
+            config = PackageConfig(app_name="recp")
 
             if args.set:
                 config.set_param(param=args.set[0], value=args.set[1])
@@ -106,10 +107,7 @@ def main() -> None:
         case "run":
             # Check if recipe is a preset
             if not args.recipe.endswith(".yaml"):
-                config = PackageConfig(
-                    app_name="recp",
-                    app_author="Esteban Gómez"
-                )
+                config = PackageConfig(app_name="recp")
 
                 if os.path.isfile(
                     os.path.join(config.recipes_dir, args.recipe + ".yaml")
@@ -120,7 +118,7 @@ def main() -> None:
                     )
                 
                 else:
-                    raise FileNotFoundError(
+                    exit_error(
                         f"Recipe {args.recipe!r} not found in recipes folder "
                         f"{config.recipes_dir!r}"
                     )

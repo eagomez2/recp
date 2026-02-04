@@ -19,7 +19,7 @@ class PackageConfig:
     def __init__(
             self,
             app_name: str,
-            app_author: str
+            app_author: str = "Esteban Gómez"
     ) -> None:
         super().__init__()
 

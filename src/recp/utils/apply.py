@@ -195,13 +195,38 @@ def apply_replace(cmd_list: List[str], **kwargs) -> List[str]:
     Returns:
         List[str]: List of modified commands.
     """
-    for cmd_idx, cmd in enumerate(cmd_list):
-        for k, v in kwargs.items():
-            cmd = cmd.replace(k, v)
+    # Each value is a list (multiple replacements)
+    if all(isinstance(v, list) for v in kwargs.values()):
+        # Check all keys have the same length
+        if len({len(v) for v in kwargs.values()}) != 1:
+            raise ValueError("All values should have the same number of items")
         
-        cmd_list[cmd_idx] = cmd
+        # Number of commands to generate
+        num_cmd_instances = len(list(kwargs.values())[0])
 
-    return cmd_list
+        cmd_list_expanded = []
+
+        for cmd in cmd_list:
+            for instance_idx in range(num_cmd_instances):
+                expanded_cmd = cmd
+
+                for token, values in kwargs.items():
+                    expanded_cmd =\
+                        expanded_cmd.replace(token, str(values[instance_idx]))
+                
+                cmd_list_expanded.append(expanded_cmd)
+        
+        return cmd_list_expanded
+    
+    # Each value is a single value (single replacement)
+    else:
+        for cmd_idx, cmd in enumerate(cmd_list):
+            for k, v in kwargs.items():
+                cmd = cmd.replace(k, v)
+            
+            cmd_list[cmd_idx] = cmd
+
+        return cmd_list
 
 
 def apply_repeat(cmd_list: List[str], n: int) -> List[str]:
@@ -260,6 +285,20 @@ def apply_match(
     return cmd_list
 
 
+def apply_run_if(cmd_list: List[str], var: str, value: str) -> List[str]:
+    """Conditionally run commands based on a variable's value.
+
+    Args:
+        cmd_list (List[str]): Input commands.
+        var (str): Variable to compare.
+        value (str): Value required to proceed.
+    
+    Returns:
+        List[str]: List of modified commands.
+    """
+    return cmd_list if var == str(value) else []
+
+
 def get_apply_registy() -> dict:
     """Returns the registry of all functions that can be used withing the `run`
     key of a recipe `.yaml` file.
@@ -274,5 +313,6 @@ def get_apply_registy() -> dict:
         "randint": apply_randint,
         "randfloat": apply_randfloat,
         "replace": apply_replace,
-        "repeat": apply_repeat
+        "repeat": apply_repeat,
+        "run_if": apply_run_if,
     }

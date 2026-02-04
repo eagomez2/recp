@@ -9,11 +9,8 @@ from typing import (
 from importlib.metadata import version as package_version
 from packaging.version import Version
 from .collections import temp_env
-from .exceptions import (
-    MinimumVersionRequirementError,
-    RequiredValueNotFoundError
-)
 from .apply import get_apply_registy
+from .display import exit_error
 
 
 class Recipe:
@@ -30,7 +27,7 @@ class Recipe:
     ROOT_KEY = "recipe"
     MINIMUM_REQUIRED_VERSION_KEY = "minimum_required_version"
     MANDATORY_STEP_KEYS = ("run",)
-    OPTIONAL_STEP_KEYS = ("tag", "description", "env")
+    OPTIONAL_STEP_KEYS = ("tag", "description", "env", "cwd")
     PACKAGE_VERSION = Version(package_version("recp")) 
     def __init__(
             self,
@@ -50,6 +47,28 @@ class Recipe:
 
         # Cache apply registry
         self._apply_registry = get_apply_registy()
+    
+    @staticmethod
+    def expandall_recursive(path: str | List[str], max_iters: int = 10) -> str:
+        if isinstance(path, list):
+            return [Recipe.expandall_recursive(p, max_iters) for p in path]
+
+        seen = set() 
+        current = path
+
+        for _ in range(max_iters):
+            if current in seen:
+                raise RecursionError("Cyclic path expansion detected")
+
+            seen.add(current)
+            next = os.path.expanduser(os.path.expandvars(current))
+
+            if next == current:
+                break
+
+            current = next
+
+        return current
 
     def _yaml_expr_constructor(
             self,
@@ -57,11 +76,11 @@ class Recipe:
             node: yaml.nodes.ScalarNode
     ) -> int | float:
         if not self.allow_expr:
-            raise ValueError(
-            f"Invalid !expr constructor at line {node.start_mark.line + 1} "
-            f"in recipe file {self.file!r}. The !expr constructor is only "
-            "allowed when the --unsafe option is enabled."
-        )
+            exit_error(
+                f"Invalid !expr constructor at line {node.start_mark.line + 1}"
+                f" in recipe file {self.file!r}. The !expr constructor is only"
+                " allowed when the --unsafe option is enabled."
+            )
 
         expr = loader.construct_scalar(node)
         return eval(expr)
@@ -87,7 +106,7 @@ class Recipe:
             }
         
         else:
-            raise ValueError(
+            exit_error(
                 f"!input constructor found on a {node.__class__.__name__!r} at"
                 f" line {node.start_mark.line + 1} in recipe file "
                 f"{self.file!r}. !input constructors only support str or dict "
@@ -96,6 +115,22 @@ class Recipe:
 
         return map
     
+    def _yaml_prompt_constructor(
+            self,
+            loader: yaml.loader.SafeLoader,
+            node: yaml.nodes.MappingNode
+    ) -> str:
+        map = loader.construct_mapping(node)
+        map["choices"] = map.get("choices")
+        map["default"] = map.get("default")
+        map["__constructor__"] = "!prompt"
+
+        # It should be a list of str
+        if map["choices"] is not None and not isinstance(map["choices"], list):
+            raise TypeError("'choices' should be a list of str choices")
+
+        return map
+
     def _yaml_split_constructor(
             self,
             loader: yaml.loader.SafeLoader,
@@ -116,6 +151,10 @@ class Recipe:
         # Add custom constructors
         yaml.SafeLoader.add_constructor("!expr", self._yaml_expr_constructor)
         yaml.SafeLoader.add_constructor("!input", self._yaml_input_constructor)
+        yaml.SafeLoader.add_constructor(
+            "!prompt",
+            self._yaml_prompt_constructor
+        )
         yaml.SafeLoader.add_constructor("!split", self._yaml_split_constructor)
 
         # Open .yaml file
@@ -137,7 +176,7 @@ class Recipe:
             )
 
             if not self.PACKAGE_VERSION >= minimum_required_version:  # noqa: SIM300
-                raise MinimumVersionRequirementError(
+                exit_error(
                     f"This recipe requires recp >= {minimum_required_version} "
                     f" but current recp version is {self.PACKAGE_VERSION}"
                 )
@@ -150,13 +189,13 @@ class Recipe:
         """
         # Check 'recipe' key exists
         if self.ROOT_KEY not in data:
-            raise KeyError(f"Key {self.ROOT_KEY!r} not found in recipe file")
+            exit_error(f"Key {self.ROOT_KEY!r} not found in recipe file")
         
         # Check step keys
         for name, data in data[self.ROOT_KEY].items():
             for mandatory_key in self.MANDATORY_STEP_KEYS:
                 if mandatory_key not in data:
-                    raise KeyError(
+                    exit_error(
                         f"Key {mandatory_key!r} not found in step {name!r}"
                     )
     
@@ -206,7 +245,7 @@ class Recipe:
                     ):
                         if (var := os.environ.get(v["name"])) is None:
                             if v.get("required"):
-                                raise RequiredValueNotFoundError(
+                                exit_error(
                                     f"Environmental variable {v['name']!r} is "
                                     f"marked in {step_name!r} as required but "
                                     "was not provided"
@@ -217,6 +256,57 @@ class Recipe:
                         
                         else:
                             env[k] = var
+                    
+                    # !prompt constructor
+                    if (
+                        isinstance(v, dict)
+                        and v["__constructor__"] == "!prompt"
+                    ):
+                        if v["choices"] is not None:
+                            # Check default is valid if any
+                            if v["default"] is not None:
+                                if v["default"] not in v["choices"]:
+                                    raise ValueError(
+                                        f"default choice {v['default']!r} not "
+                                        "found in choices"
+                                    )
+                                
+                                choices_repr = [
+                                    c if c != v["default"] else f"*{c}"
+                                    for c in v["choices"]
+                                ]
+                                choices_repr =\
+                                    " [" + "/".join(choices_repr) + "]"
+                            
+                            else:
+                                choices_repr =\
+                                    " [" + "/".join(v["choices"]) + "]"
+
+                            while True:
+                                choice = input(
+                                    f"{v['message']}{choices_repr}: "
+                                )
+
+                                if choice == "" and v["default"] is not None:
+                                    choice = v["default"]
+
+                                if choice in v["choices"]:
+                                    env[k] = choice
+                                    break
+                        
+                        else:
+                            if v.get("default") is not None:
+                                response = input(
+                                    f"{v['message']} [*{v['default']}]: "
+                                )
+                                
+                                env[k] = (
+                                    v['default'] if response == ""
+                                    else response
+                                )
+                            
+                            else:
+                                env[k] = input(f"{v['message']}: ")
         
         return data
     
@@ -237,12 +327,12 @@ class Recipe:
                 for cmd_idx, cmd in enumerate(step["run"]):
                     if isinstance(cmd, str):
                         cmd_seq.append(
-                            os.path.expanduser(os.path.expandvars(cmd))
+                            self.expandall_recursive(cmd)
                         )
                     
                     elif isinstance(cmd, dict):
                         cmd_list = [
-                            os.path.expanduser(os.path.expandvars(cmd["cmd"]))
+                            self.expandall_recursive(cmd["cmd"])
                         ]
                         modifiers = cmd["apply"]
 
@@ -250,18 +340,24 @@ class Recipe:
                             fn = self._apply_registry.get(modifier["fn"], None)
 
                             if fn is None:
-                                raise ValueError(
+                                exit_error(
                                     f"Function {modifier['fn']!r} applied in "
                                     f"command #{cmd_idx} of step {step_name!r}"
                                     " not found"
                                 )
                             
+                            # Solve modifier env variables
+                            modifier["args"] = {
+                                k: self.expandall_recursive(v)
+                                for k, v in modifier["args"].items()
+                            }
+
                             cmd_list = fn(cmd_list, **modifier["args"])
 
                         cmd_seq += cmd_list
     
                     else:
-                        raise TypeError(
+                        exit_error(
                             f"Command #{cmd_idx} of step is of type "
                             f"{cmd.__class__.__name__!r}, but only str or dict"
                             " commands are supported"
@@ -357,13 +453,21 @@ class Recipe:
                     f"{indent}{'Description:':<{13}}"
                     f"{step['description']}".rstrip("\n")
                 )
+            
+            if step.get("cwd") is not None:
+                with temp_env(step.get("env", {})):  
+                    cwd = self.expandall_recursive(step["cwd"])
+                    print(f"{indent}{'CWD:':<{13}}{cwd}")
+            
+            else:
+                cwd = None
 
             for cmd in step["run"]:
                 print(f"{indent}{'Command:':<{13}}{cmd}")
 
                 if not dry_run: 
                     if ignore_errors:
-                        subprocess.run(cmd, shell=True)
+                        subprocess.run(cmd, shell=True, cwd=cwd)
                     
                     else:
-                        subprocess.run(cmd, shell=True, check=True)
+                        subprocess.run(cmd, shell=True, cwd=cwd, check=True)
