@@ -1,5 +1,6 @@
 import os
 import random
+from functools import reduce
 from datetime import datetime
 from typing import List
 from .io import get_dir_files
@@ -108,7 +109,8 @@ def apply_index(
 def apply_parent_dir(
         cmd_list: List[str],
         token: str,
-        path: str
+        path: str,
+        n: int = 1
 ) -> List[str]:
     """Replaces a given token by the parent path of a given path.
 
@@ -117,15 +119,23 @@ def apply_parent_dir(
         token (str): The token within the command strings to be replaced.
         path (str): The file system path from which the parent directory will
             be extracted.
+        n (int): Number of times to apply the function recursively.
     
     Returns:
         List[str]: List of modified commands.
     """
+    parent = reduce(
+        lambda p, _: os.path.dirname(p),
+        range(n),
+        os.path.normpath(path),
+    )
+
     for cmd_idx, cmd in enumerate(cmd_list):
-        cmd_list[cmd_idx] = cmd.replace(
-            token,
-            os.path.dirname(os.path.normpath(path))
-        )
+        cmd_list[cmd_idx] = cmd.replace(token, parent)
+        # cmd_list[cmd_idx] = cmd.replace(
+        #     token,
+        #     os.path.dirname(os.path.normpath(path))
+        # )
     
     return cmd_list
 

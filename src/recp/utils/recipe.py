@@ -349,6 +349,7 @@ class Recipe:
                             # Solve modifier env variables
                             modifier["args"] = {
                                 k: self.expandall_recursive(v)
+                                if isinstance(v, str) else v
                                 for k, v in modifier["args"].items()
                             }
 
