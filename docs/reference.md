@@ -422,6 +422,7 @@ Replaces a token by the path to the parent directory of a given path.
 |----------|--------|--------------------------------------------------|
 | `token`  | `str`  | Token to be replaced.                            |
 | `path`   | `str`  | Path whose parent directory will be extracted.   |
+| `n`      | `int`  | Repeat this function recursively `n` times.      |
 
 Example:
 ```yaml
