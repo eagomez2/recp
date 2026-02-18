@@ -316,18 +316,26 @@ def apply_match(
     return cmd_list
 
 
-def apply_run_if(cmd_list: List[str], var: str, value: str) -> List[str]:
+def apply_run_if(
+        cmd_list: List[str],
+        var: str,
+        value: str | List[str]
+) -> List[str]:
     """Conditionally run commands based on a variable's value.
 
     Args:
         cmd_list (List[str]): Input commands.
         var (str): Variable to compare.
-        value (str): Value required to proceed.
+        value (str | List[str]): Value(s) required to proceed.
     
     Returns:
         List[str]: List of modified commands.
     """
-    return cmd_list if var == str(value) else []
+    if isinstance(value, List):
+        return cmd_list if var in (str(v) for v in value) else []
+    
+    else:
+        return cmd_list if var == str(value) else []
 
 
 def get_apply_registy() -> dict:
