@@ -311,7 +311,7 @@ def apply_match(
 
     for cmd_idx, cmd in enumerate(cmd_list):
         value_idx = choice.index(var)
-        cmd_list[cmd_idx] = cmd.replace(token, value[value_idx])
+        cmd_list[cmd_idx] = cmd.replace(token, str(value[value_idx]))
     
     return cmd_list
 
