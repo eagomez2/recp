@@ -305,13 +305,14 @@ def apply_match(
     choices = [str(c) for c in choices]
     var = os.path.expanduser(os.path.expandvars(var))
 
+    # FIXME: Values may be repeated in some cases
     # Turn into sets to filter out repeated values
-    choice = list(dict.fromkeys(choices))  # Preserves order
-    value = list(dict.fromkeys(values))
+    # choice = list(dict.fromkeys(choices))  # Preserves order
+    # value = list(dict.fromkeys(values))
 
     for cmd_idx, cmd in enumerate(cmd_list):
-        value_idx = choice.index(var)
-        cmd_list[cmd_idx] = cmd.replace(token, str(value[value_idx]))
+        value_idx = choices.index(var)
+        cmd_list[cmd_idx] = cmd.replace(token, str(values[value_idx]))
     
     return cmd_list
 
