@@ -33,7 +33,7 @@ def temp_env(merge: dict = {}):
             names and the values are their corresponding values.
     """
     old_env = os.environ.copy()
-    
+
     try:
         os.environ.update({k: str(v) for k, v in merge.items()})
         yield

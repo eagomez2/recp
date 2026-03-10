@@ -1,9 +1,31 @@
 import os
 import random
+from functools import reduce
 from datetime import datetime
 from typing import List
 from .io import get_dir_files
 from .exceptions import LenghtError
+
+
+def apply_basename(
+        cmd_list: List[str],
+        token: str,
+        path: str
+) -> List[str]:
+    """Replaces a given token by the parent path of a given path.
+
+    Args:
+        cmd_list (List[str]): Input commands.
+        token (str): The token within the command strings to be replaced.
+        path (str): File system path from which the basename will be extracted.
+    
+    Returns:
+        List[str]: List of modified commands.
+    """
+    for cmd_idx, cmd in enumerate(cmd_list):
+        cmd_list[cmd_idx] = cmd.replace(token, os.path.basename(path))
+    
+    return cmd_list
 
 
 def apply_date(
@@ -87,7 +109,8 @@ def apply_index(
 def apply_parent_dir(
         cmd_list: List[str],
         token: str,
-        path: str
+        path: str,
+        n: int = 1
 ) -> List[str]:
     """Replaces a given token by the parent path of a given path.
 
@@ -96,15 +119,23 @@ def apply_parent_dir(
         token (str): The token within the command strings to be replaced.
         path (str): The file system path from which the parent directory will
             be extracted.
+        n (int): Number of times to apply the function recursively.
     
     Returns:
         List[str]: List of modified commands.
     """
+    parent = reduce(
+        lambda p, _: os.path.dirname(p),
+        range(n),
+        os.path.normpath(path),
+    )
+
     for cmd_idx, cmd in enumerate(cmd_list):
-        cmd_list[cmd_idx] = cmd.replace(
-            token,
-            os.path.dirname(os.path.normpath(path))
-        )
+        cmd_list[cmd_idx] = cmd.replace(token, parent)
+        # cmd_list[cmd_idx] = cmd.replace(
+        #     token,
+        #     os.path.dirname(os.path.normpath(path))
+        # )
     
     return cmd_list
 
@@ -274,29 +305,38 @@ def apply_match(
     choices = [str(c) for c in choices]
     var = os.path.expanduser(os.path.expandvars(var))
 
+    # FIXME: Values may be repeated in some cases
     # Turn into sets to filter out repeated values
-    choice = list(dict.fromkeys(choices))  # Preserves order
-    value = list(dict.fromkeys(values))
+    # choice = list(dict.fromkeys(choices))  # Preserves order
+    # value = list(dict.fromkeys(values))
 
     for cmd_idx, cmd in enumerate(cmd_list):
-        value_idx = choice.index(var)
-        cmd_list[cmd_idx] = cmd.replace(token, value[value_idx])
+        value_idx = choices.index(var)
+        cmd_list[cmd_idx] = cmd.replace(token, str(values[value_idx]))
     
     return cmd_list
 
 
-def apply_run_if(cmd_list: List[str], var: str, value: str) -> List[str]:
+def apply_run_if(
+        cmd_list: List[str],
+        var: str,
+        value: str | List[str]
+) -> List[str]:
     """Conditionally run commands based on a variable's value.
 
     Args:
         cmd_list (List[str]): Input commands.
         var (str): Variable to compare.
-        value (str): Value required to proceed.
+        value (str | List[str]): Value(s) required to proceed.
     
     Returns:
         List[str]: List of modified commands.
     """
-    return cmd_list if var == str(value) else []
+    if isinstance(value, List):
+        return cmd_list if var in (str(v) for v in value) else []
+    
+    else:
+        return cmd_list if var == str(value) else []
 
 
 def get_apply_registy() -> dict:
@@ -304,6 +344,7 @@ def get_apply_registy() -> dict:
     key of a recipe `.yaml` file.
     """
     return {
+        "basename": apply_basename,
         "date": apply_date,
         "dir_files": apply_dir_files,
         "index": apply_index,

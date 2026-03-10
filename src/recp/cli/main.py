@@ -116,12 +116,16 @@ def main() -> None:
                         config.recipes_dir,
                         args.recipe + ".yaml"
                     )
-                
+
                 else:
                     exit_error(
                         f"Recipe {args.recipe!r} not found in recipes folder "
                         f"{config.recipes_dir!r}"
                     )
+
+            # Add env variables
+            os.environ["RECP_ROOT"] = sys.argv[0]
+            os.environ["RECP_RECIPE_FILE"] = os.path.abspath(args.recipe)
 
             # Create and run recipe
             recipe = Recipe(file=args.recipe, allow_expr=args.unsafe)
