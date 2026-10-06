@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../assets/logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -44,12 +44,14 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"JetBrains Mono"}</style>
       
     
     
       <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -67,7 +69,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -122,20 +124,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
       </label>
     
   
@@ -817,6 +819,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Parallel commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#output-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command labels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#following-parallel-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Following parallel commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -927,7 +968,7 @@
 
 <h2 id="recipe-structure">Recipe structure</h2>
 <p>A recipe file with all available fields is shown below. Each field is described afterward.</p>
-<p><div class="language-yaml highlight"><span class="filename">recipe.yaml with all available fields</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.3.0</span>
+<p><div class="language-yaml highlight"><span class="filename">recipe.yaml with all available fields</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.4.0</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">env</span><span class="p">:</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">OUTPUT_DIR</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/output</span>
@@ -960,47 +1001,47 @@
 A recipe file is a <code>.yaml</code> file where:</p>
 <ul>
 <li><code>minimum_required_version</code> is an <strong>optional</strong> field specifying the minimum <code>recp</code> version required to run it.</li>
-<li><code>env</code> is an <strong>optional</strong> field containing environmental variables shared by all steps. A step can override them in its own <code>env</code> key.</li>
+<li><code>env</code> is an <strong>optional</strong> field containing environment variables shared by all steps. A step can override them in its own <code>env</code> key.</li>
 <li><code>recipe</code> is the <strong>required</strong> root key containing the description of each step to be run.</li>
 </ul>
 <p>Each step has:</p>
 <ul>
 <li>A <strong>required</strong> name key (<code>first_step</code>) containing the information relative to that particular step.</li>
-<li>An <strong>optional</strong> <code>tag</code> key containing a <code>str</code> or a <code>list</code> of <code>str</code>, each one corresponding to a tag that can be use to select a certain subset of steps to be run with the <code>--tag</code> option.</li>
-<li>An <strong>optional</strong> <code>description</code> key containing a <code>str</code> that describes that the step does. This is only for documentation purposes, and will be printed to the terminal when the recipe is run.</li>
-<li>An <strong>optional</strong> <code>env</code> key containing environmental variables to be used in that step. They are expanded in the commands and also passed to the processes run by the commands. The environmental variables of a specific step are isolated from all other steps. To share variables across steps you can use the recipe-level <code>env</code> key. Additionally, environmental variables can be defined directly in the <code>.yaml</code> file, or defined by the user when running the recipe. User defined variables can be configured using the <code>!input</code> constructor that has a mandatory <code>name</code> key, and an optional <code>default</code> key to define the default value, and an optional <code>required</code> key containing a <code>bool</code> value to specify whether that variable is required or optional.</li>
+<li>An <strong>optional</strong> <code>tag</code> key containing a <code>str</code> or a <code>list</code> of <code>str</code>, each one corresponding to a tag that can be used to select a certain subset of steps to be run with the <code>--tag</code> option.</li>
+<li>An <strong>optional</strong> <code>description</code> key containing a <code>str</code> that describes what the step does. This is only for documentation purposes, and is printed to the terminal when the recipe is run.</li>
+<li>An <strong>optional</strong> <code>env</code> key containing environment variables to be used in that step. They are expanded in the commands and also passed to the processes run by the commands. The environment variables of a specific step are isolated from all other steps. To share variables across steps you can use the recipe-level <code>env</code> key. Additionally, environment variables can be defined directly in the <code>.yaml</code> file, or defined by the user when running the recipe. User defined variables can be configured using the <code>!input</code> constructor that has a mandatory <code>name</code> key, and an optional <code>default</code> key to define the default value, and an optional <code>required</code> key containing a <code>bool</code> value to specify whether that variable is required or optional.</li>
 <li>An <strong>optional</strong> <code>cwd</code> key containing the folder where the commands of that step are run.</li>
 <li>An <strong>optional</strong> <code>parallel</code> key containing the number of commands of that step run at the same time (see <a href="#parallel-commands">Parallel commands</a>).</li>
-<li>A <strong>required</strong> <code>run</code> key that contains a <code>str</code> or a <code>list</code> of the commands to be run. A command can be a <code>str</code> or a <code>dict</code> containing the <code>cmd</code> key and the <code>apply</code> key containing a <code>list</code> of modifiers to be applied to that command as a pre-processing step to generate one or multiple commands. Each modifier is defined by a <code>fn</code> key with the modifier function name, and an <code>args</code> key with the corresponding arguments. A <code>dict</code> command can also contain a <code>skip_if_exists</code> key (see <a href="#skipping-existing-outputs">Skipping existing outputs</a>).</li>
+<li>A <strong>required</strong> <code>run</code> key that contains a <code>str</code> or a <code>list</code> of the commands to be run. A command can be a <code>str</code> or a <code>dict</code> containing the <code>cmd</code> key and the <code>apply</code> key containing a <code>list</code> of modifiers to be applied to that command as a pre-processing step to generate one or multiple commands. Each modifier is defined by a <code>fn</code> key with the modifier function name, and an <code>args</code> key with the corresponding arguments. A <code>dict</code> command can also contain a <code>skip_if_exists</code> key (see <a href="#skipping-existing-outputs">Skipping existing outputs</a>) and a <code>label</code> key (see <a href="#command-labels">Command labels</a>).</li>
 </ul>
-<p>Environmental variables such as <code>$HOME</code> or <code>$USER_NAME</code> are expanded by <code>recp</code> before the commands are run. Use <code>$$</code> to pass a literal <code>$</code> to the command instead. The <code>RECP_RECIPE_FILE</code> variable contains the absolute path to the recipe file being run.</p>
-<p>A recipe can be run using:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>recp<span class="w"> </span>run<span class="w"> </span>/path/to/your/recipe.yaml
-</span></code></pre></div></p>
-<p>Additionally, you can show the commands without running them with the <code>--dry-run</code> option, that can be used for debugging purposes.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>recp<span class="w"> </span>run<span class="w"> </span>/path/to/your/recipe.yaml<span class="w"> </span>--dry-run<span class="w"> </span>
+<p>Environment variables such as <code>$HOME</code> or <code>$USER_NAME</code> are expanded by <code>recp</code> before the commands are run. Use <code>$$</code> to pass a literal <code>$</code> to the command instead. The <code>RECP_RECIPE_FILE</code> variable contains the absolute path to the recipe file being run.</p>
+<p>A recipe can be run using:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>recp run /path/to/your/recipe.yaml
 </span></code></pre></div>
-<p>To filter steps by tag, you can use:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>recp<span class="w"> </span>run<span class="w"> </span>/path/to/your/recipe.yaml<span class="w"> </span>--tag<span class="w"> </span>first<span class="w"> </span>
-</span></code></pre></div></p>
+<p>Additionally, you can show the commands without running them with the <code>--dry-run</code> option, that can be used for debugging purposes.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>recp run /path/to/your/recipe.yaml --dry-run 
+</span></code></pre></div>
+<p>To filter steps by tag, you can use:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>recp run /path/to/your/recipe.yaml --tag first 
+</span></code></pre></div>
 <p>This will only collect steps containing the tag <code>first</code>. Multiple tags can be used to filter a step, in which case only steps containing all of them will be selected. </p>
-<p>To run only some steps by name, or to resume a recipe from a given step, you can use:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>recp<span class="w"> </span>run<span class="w"> </span>/path/to/your/recipe.yaml<span class="w"> </span>--step<span class="w"> </span>first_step
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>recp<span class="w"> </span>run<span class="w"> </span>/path/to/your/recipe.yaml<span class="w"> </span>--from<span class="w"> </span>first_step
-</span></code></pre></div></p>
+<p>To run only some steps by name, or to resume a recipe from a given step, you can use:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>recp run /path/to/your/recipe.yaml --step first_step
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>recp run /path/to/your/recipe.yaml --from first_step
+</span></code></pre></div>
 <p>If a command fails, <code>recp</code> stops, prints a summary and exits with the exit code of the failed command. With the <code>--ignore-errors</code> option, the remaining commands are run anyway and <code>recp</code> exits with code <code>1</code> if any of them failed.</p>
 <p>The output is colored only when printed to a terminal. Colors can be disabled by setting the <code>NO_COLOR</code> environment variable, or forced by setting <code>FORCE_COLOR</code>.</p>
-<p>To see the steps of a recipe without running it or prompting for any value, you can use:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>recp<span class="w"> </span>show<span class="w"> </span>/path/to/your/recipe.yaml
-</span></code></pre></div></p>
-<p>For further options on <code>recp run</code>, you can run:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>recp<span class="w"> </span>run<span class="w"> </span>--help
-</span></code></pre></div></p>
+<p>To see the steps of a recipe without running it or prompting for any value, you can use:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>recp show /path/to/your/recipe.yaml
+</span></code></pre></div>
+<p>For further options on <code>recp run</code>, you can run:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>recp run --help
+</span></code></pre></div>
 <h2 id="constructors">Constructors</h2>
 <p>A recipe <code>.yaml</code> file can be created using a certain set of custom constructors to facilitate expressing your commands.</p>
 <h3 id="input-constructor">!input constructor</h3>
 <p>The <code>!input</code> constructor allows you to introduce user variables provided through the terminal into your recipe. It is typically used in the <code>env</code> key as exemplified below.</p>
-<div class="language-yaml highlight"><span class="filename">input_constructor_example.yaml</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1.0</span>
+<div class="language-yaml highlight"><span class="filename">input_constructor_example.yaml</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.4.0</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
@@ -1014,35 +1055,35 @@ A recipe file is a <code>.yaml</code> file where:</p>
 </span></code></pre></div>
 <p>In this case:</p>
 <ul>
-<li><code>name</code> is a <strong>required</strong> key with the name of the environmental variable to be provided by the user. This name can be the same as its parent key or different.</li>
+<li><code>name</code> is a <strong>required</strong> key with the name of the environment variable to be provided by the user. This name can be the same as its parent key or different.</li>
 <li><code>default</code> is an <strong>optional</strong> key. It sets the value to use if the user does not provide the variable.</li>
 <li><code>required</code> is an <strong>optional</strong> key. If <code>true</code>, the user must provide the variable to run the recipe.</li>
 </ul>
-<p>The recipe can be run as:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nv">USER_VAR</span><span class="o">=</span><span class="s2">&quot;Juhani&quot;</span><span class="w"> </span>recp<span class="w"> </span>run<span class="w"> </span>/path/to/input_constructor_example.yaml
-</span></code></pre></div></p>
-<p>It will result in the following output:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Using<span class="w"> </span>recipe<span class="w"> </span><span class="s1">&#39;/path/to/input_constructor_example.yaml&#39;</span><span class="w"> </span>...
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="m">1</span><span class="w"> </span>step<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>found
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Pre-processing<span class="w"> </span>recipe<span class="w"> </span>data<span class="w"> </span>...
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>Recipe<span class="w"> </span>pre-processing<span class="w"> </span>successfully<span class="w"> </span>completed
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Parsing<span class="w"> </span>step<span class="w"> </span>environments<span class="w"> </span>...
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>Step<span class="w"> </span>environments<span class="w"> </span>processing<span class="w"> </span>successfully<span class="w"> </span>completed
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>Pre-processing<span class="w"> </span>recipe<span class="w"> </span>commands<span class="w"> </span>...
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>Recipe<span class="w"> </span>commands<span class="w"> </span>successfully<span class="w"> </span>completed
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>Running<span class="w"> </span>commands<span class="w"> </span>...
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="o">[</span><span class="m">1</span>/1<span class="o">]</span><span class="w"> </span>Running<span class="w"> </span>step<span class="w"> </span><span class="s1">&#39;step&#39;</span><span class="w"> </span>...
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">      </span>Command:<span class="w">     </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;print user variable: Juhani&#39;</span>
-</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>print<span class="w"> </span>user<span class="w"> </span>variable:<span class="w"> </span>Juhani
-</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>Summary:<span class="w"> </span><span class="m">1</span><span class="w"> </span>step<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>completed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>not<span class="w"> </span>run
-</span></code></pre></div></p>
+<p>The recipe can be run as:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>USER_VAR=&quot;Juhani&quot; recp run /path/to/input_constructor_example.yaml
+</span></code></pre></div>
+<p>It will result in the following output:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Using recipe &#39;/path/to/input_constructor_example.yaml&#39; ...
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>1 step(s) found
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Pre-processing recipe data ...
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>Recipe pre-processing successfully completed
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Parsing step environments ...
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>Step environments processing successfully completed
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>Pre-processing recipe commands ...
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>Recipe commands successfully completed
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>Running commands ...
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>[1/1] Running step &#39;step&#39; ...
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>      Command:     echo &#39;print user variable: Juhani&#39;
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>print user variable: Juhani
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>Summary: 1 step(s) completed, 0 failed, 0 not run
+</span></code></pre></div>
 <h3 id="prompt-constructor">!prompt constructor</h3>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>This constructor was introduced in version <code>0.1.2</code>, so update your <code>minimum_required_version</code> if that key is present.</p>
 </div>
 <p>The <code>!prompt</code> constructor works like <code>!input</code>, but instead of directly including the variable in your command, it creates a user prompt for entering a value or choice. It's usually used within the <code>env</code> key, as shown below.</p>
-<div class="language-yaml highlight"><span class="filename">prompt_constructor_example.yaml</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1.2</span>
+<div class="language-yaml highlight"><span class="filename">prompt_constructor_example.yaml</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.4.0</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
@@ -1052,26 +1093,26 @@ A recipe file is a <code>.yaml</code> file where:</p>
 </span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="nt">run</span><span class="p">:</span>
 </span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;echo</span><span class="nv"> </span><span class="s">&#39;print</span><span class="nv"> </span><span class="s">user</span><span class="nv"> </span><span class="s">variable:</span><span class="nv"> </span><span class="s">$USER_VAR&#39;&quot;</span>
 </span></code></pre></div>
-<p>In this case <code>message</code> is a <strong>required</strong> key containing the message displayed to the user. You can run the recipe with:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>recp<span class="w"> </span>run<span class="w"> </span>/path/to/prompt_constructor_example.yaml
-</span></code></pre></div></p>
-<p>The result will depend on what the user typed before pressing <code>enter</code>.
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="m">1</span><span class="w"> </span>step<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>found
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Pre-processing<span class="w"> </span>recipe<span class="w"> </span>data<span class="w"> </span>...
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Recipe<span class="w"> </span>pre-processing<span class="w"> </span>successfully<span class="w"> </span>completed
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>Parsing<span class="w"> </span>step<span class="w"> </span>environments<span class="w"> </span>...
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>Introduce<span class="w"> </span>variable<span class="w"> </span>value:<span class="w"> </span>Juhani
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>Step<span class="w"> </span>environments<span class="w"> </span>processing<span class="w"> </span>successfully<span class="w"> </span>completed
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>Pre-processing<span class="w"> </span>recipe<span class="w"> </span>commands<span class="w"> </span>...
-</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>Recipe<span class="w"> </span>commands<span class="w"> </span>successfully<span class="w"> </span>completed
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>Running<span class="w"> </span>commands<span class="w"> </span>...
-</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="o">[</span><span class="m">1</span>/1<span class="o">]</span><span class="w"> </span>Running<span class="w"> </span>step<span class="w"> </span><span class="s1">&#39;step&#39;</span><span class="w"> </span>...
-</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">      </span>Command:<span class="w">     </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;print user variable: Juhani&#39;</span>
-</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>print<span class="w"> </span>user<span class="w"> </span>variable:<span class="w"> </span>Juhani
-</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>Summary:<span class="w"> </span><span class="m">1</span><span class="w"> </span>step<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>completed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>not<span class="w"> </span>run
-</span></code></pre></div></p>
-<p>Additionally, the input can be configured to be a set of choices:
-<div class="language-yaml highlight"><span class="filename">prompt_constructor_example_choices.yaml</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1.2</span>
+<p>In this case <code>message</code> is a <strong>required</strong> key containing the message displayed to the user. You can run the recipe with:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>recp run /path/to/prompt_constructor_example.yaml
+</span></code></pre></div>
+<p>The result will depend on what the user typed before pressing <code>enter</code>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>1 step(s) found
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Pre-processing recipe data ...
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Recipe pre-processing successfully completed
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>Parsing step environments ...
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>Introduce variable value: Juhani
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>Step environments processing successfully completed
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>Pre-processing recipe commands ...
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>Recipe commands successfully completed
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>Running commands ...
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>[1/1] Running step &#39;step&#39; ...
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>      Command:     echo &#39;print user variable: Juhani&#39;
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>print user variable: Juhani
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>Summary: 1 step(s) completed, 0 failed, 0 not run
+</span></code></pre></div>
+<p>Additionally, the input can be configured to be a set of choices:</p>
+<div class="language-yaml highlight"><span class="filename">prompt_constructor_example_choices.yaml</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.4.0</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
@@ -1083,24 +1124,24 @@ A recipe file is a <code>.yaml</code> file where:</p>
 </span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dog</span>
 </span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="nt">run</span><span class="p">:</span>
 </span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;echo</span><span class="nv"> </span><span class="s">&#39;You</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">$CHOICE</span><span class="nv"> </span><span class="s">person&#39;&quot;</span>
-</span></code></pre></div></p>
-<p>In this case, the user can only type one of the available choices. If they enter something else, the program will prompt them to select a valid choice again. For example, if you type <code>cat</code> and <code>press</code> enter, you will get the following output:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="m">1</span><span class="w"> </span>step<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>found
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Pre-processing<span class="w"> </span>recipe<span class="w"> </span>data<span class="w"> </span>...
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Recipe<span class="w"> </span>pre-processing<span class="w"> </span>successfully<span class="w"> </span>completed
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>Parsing<span class="w"> </span>step<span class="w"> </span>environments<span class="w"> </span>...
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>Favourite<span class="w"> </span>pet<span class="w"> </span><span class="o">[</span>cat/dog<span class="o">]</span>:<span class="w"> </span>cat
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>Step<span class="w"> </span>environments<span class="w"> </span>processing<span class="w"> </span>successfully<span class="w"> </span>completed
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>Pre-processing<span class="w"> </span>recipe<span class="w"> </span>commands<span class="w"> </span>...
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>Recipe<span class="w"> </span>commands<span class="w"> </span>successfully<span class="w"> </span>completed
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>Running<span class="w"> </span>commands<span class="w"> </span>...
-</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="o">[</span><span class="m">1</span>/1<span class="o">]</span><span class="w"> </span>Running<span class="w"> </span>step<span class="w"> </span><span class="s1">&#39;step&#39;</span><span class="w"> </span>...
-</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">      </span>Command:<span class="w">     </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;You are a cat person&#39;</span>
-</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>You<span class="w"> </span>are<span class="w"> </span>a<span class="w"> </span>cat<span class="w"> </span>person
-</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>Summary:<span class="w"> </span><span class="m">1</span><span class="w"> </span>step<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>completed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>not<span class="w"> </span>run
-</span></code></pre></div></p>
-<p>Additionally, you can set a default choice using the <code>default</code> key:
-<div class="language-yaml highlight"><span class="filename">prompt_constructor_example_choices_default.yaml</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1.2</span>
+</span></code></pre></div>
+<p>In this case, the user can only type one of the available choices. If they enter something else, the program will prompt them to select a valid choice again. For example, if you type <code>cat</code> and press <span class="keys"><kbd class="key-enter">Enter</kbd></span>, the output is:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>1 step(s) found
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Pre-processing recipe data ...
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Recipe pre-processing successfully completed
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>Parsing step environments ...
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>Favourite pet [cat/dog]: cat
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>Step environments processing successfully completed
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>Pre-processing recipe commands ...
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>Recipe commands successfully completed
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>Running commands ...
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>[1/1] Running step &#39;step&#39; ...
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>      Command:     echo &#39;You are a cat person&#39;
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>You are a cat person
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>Summary: 1 step(s) completed, 0 failed, 0 not run
+</span></code></pre></div>
+<p>Additionally, you can set a default choice using the <code>default</code> key:</p>
+<div class="language-yaml highlight"><span class="filename">prompt_constructor_example_choices_default.yaml</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.4.0</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
@@ -1113,7 +1154,7 @@ A recipe file is a <code>.yaml</code> file where:</p>
 </span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cat</span>
 </span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">    </span><span class="nt">run</span><span class="p">:</span>
 </span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;echo</span><span class="nv"> </span><span class="s">&#39;You</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">$CHOICE</span><span class="nv"> </span><span class="s">person&#39;&quot;</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p>In this case, the option prefixed with a <code>*</code> in the prompt will be selected if the user presses enter without explicitly choosing another option.</p>
 <p>Leading and trailing spaces are removed from the user response. If no input is available (e.g. when running in a batch job), the <code>default</code> value is used if there is one, otherwise <code>recp</code> stops with an error.</p>
 <h3 id="split-constructor">!split constructor</h3>
@@ -1133,7 +1174,7 @@ A recipe file is a <code>.yaml</code> file where:</p>
 <p>This constructor was introduced in version <code>0.3.0</code>, so update your <code>minimum_required_version</code> if that key is present.</p>
 </div>
 <p>The <code>!lines</code> constructor reads a text file and returns a <code>list</code> with one item per line. Leading and trailing spaces are removed, and empty lines and lines starting with <code>#</code> are ignored. Relative paths are resolved from the folder where <code>recp</code> is run.</p>
-<div class="language-yaml highlight"><span class="filename">lines_constructor_example.yaml</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.3.0</span>
+<div class="language-yaml highlight"><span class="filename">lines_constructor_example.yaml</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.4.0</span>
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
 </span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
@@ -1150,7 +1191,7 @@ A recipe file is a <code>.yaml</code> file where:</p>
 <p>This constructor was introduced in version <code>0.3.0</code>, so update your <code>minimum_required_version</code> if that key is present.</p>
 </div>
 <p>The <code>!shell</code> constructor runs a command when the recipe is loaded and returns its output as a <code>str</code>. The command is run even when using <code>--dry-run</code>.</p>
-<div class="language-yaml highlight"><span class="filename">shell_constructor_example.yaml</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.3.0</span>
+<div class="language-yaml highlight"><span class="filename">shell_constructor_example.yaml</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.4.0</span>
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
 </span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
@@ -1165,7 +1206,7 @@ A recipe file is a <code>.yaml</code> file where:</p>
 <p>This constructor was introduced in version <code>0.3.0</code>, so update your <code>minimum_required_version</code> if that key is present.</p>
 </div>
 <p>The <code>!now</code> constructor returns the date and time when the recipe was loaded, using a <code>datetime</code> format (<code>%Y-%m-%d</code> by default). All <code>!now</code> constructors in a recipe use the same timestamp, so the value is consistent across steps.</p>
-<div class="language-yaml highlight"><span class="filename">now_constructor_example.yaml</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.3.0</span>
+<div class="language-yaml highlight"><span class="filename">now_constructor_example.yaml</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.4.0</span>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
 </span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nt">env</span><span class="p">:</span>
 </span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span><span class="nt">RUN_ID</span><span class="p">:</span><span class="w"> </span><span class="kt">!now</span><span class="w"> </span><span class="s">&quot;%Y%m%d-%H%M&quot;</span>
@@ -1182,7 +1223,7 @@ A recipe file is a <code>.yaml</code> file where:</p>
 <p>This constructor uses <code>eval()</code> internally and is considered unsafe. By default, it is disabled, but you can enable it by using the <code>--unsafe</code> option when running the recipe.</p>
 </div>
 <p>This constructor can be used in any part of your recipe as follows:</p>
-<div class="language-yaml highlight"><span class="filename">expr_constructor_example.yaml</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1.0</span>
+<div class="language-yaml highlight"><span class="filename">expr_constructor_example.yaml</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.4.0</span>
 </span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
 </span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
@@ -1193,27 +1234,27 @@ A recipe file is a <code>.yaml</code> file where:</p>
 </span></code></pre></div>
 <p>To run this recipe and enable the <code>!expr</code> constructor, you must use the <code>--unsafe</code> option
 as follows:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>recp<span class="w"> </span>run<span class="w"> </span>/path/to/expr_constructor_example.yaml<span class="w"> </span>--unsafe
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>recp run /path/to/expr_constructor_example.yaml --unsafe
 </span></code></pre></div>
-<p>It will result in the following output:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Using<span class="w"> </span>recipe<span class="w"> </span><span class="s1">&#39;/path/to/expr_constructor_example.yaml&#39;</span><span class="w"> </span>...
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="m">1</span><span class="w"> </span>step<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>found
-</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>Pre-processing<span class="w"> </span>recipe<span class="w"> </span>data<span class="w"> </span>...
-</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>Recipe<span class="w"> </span>pre-processing<span class="w"> </span>successfully<span class="w"> </span>completed
-</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>Parsing<span class="w"> </span>step<span class="w"> </span>environments<span class="w"> </span>...
-</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>Step<span class="w"> </span>environments<span class="w"> </span>processing<span class="w"> </span>successfully<span class="w"> </span>completed
-</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>Pre-processing<span class="w"> </span>recipe<span class="w"> </span>commands<span class="w"> </span>...
-</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>Recipe<span class="w"> </span>commands<span class="w"> </span>successfully<span class="w"> </span>completed
-</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>Running<span class="w"> </span>commands<span class="w"> </span>...
-</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="o">[</span><span class="m">1</span>/1<span class="o">]</span><span class="w"> </span>Running<span class="w"> </span>step<span class="w"> </span><span class="s1">&#39;step&#39;</span><span class="w"> </span>...
-</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="w">      </span>Command:<span class="w">     </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;A day has 86400 seconds&#39;</span>
-</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>A<span class="w"> </span>day<span class="w"> </span>has<span class="w"> </span><span class="m">86400</span><span class="w"> </span>seconds
-</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>Summary:<span class="w"> </span><span class="m">1</span><span class="w"> </span>step<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>completed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>not<span class="w"> </span>run
-</span></code></pre></div></p>
+<p>It will result in the following output:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Using recipe &#39;/path/to/expr_constructor_example.yaml&#39; ...
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>1 step(s) found
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>Pre-processing recipe data ...
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>Recipe pre-processing successfully completed
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>Parsing step environments ...
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>Step environments processing successfully completed
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>Pre-processing recipe commands ...
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>Recipe commands successfully completed
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>Running commands ...
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>[1/1] Running step &#39;step&#39; ...
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>      Command:     echo &#39;A day has 86400 seconds&#39;
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>A day has 86400 seconds
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>Summary: 1 step(s) completed, 0 failed, 0 not run
+</span></code></pre></div>
 <h2 id="modifiers">Modifiers</h2>
 <p>Modifiers are functions that take a command as input and transform it into one or more commands according to some logic. They can be used to write more compact recipes and to add variation or dynamic behavior to your commands.</p>
-<p>To use a modifier, you can include then in the <code>run</code> key as follows:
-<div class="language-yaml highlight"><span class="filename">modifier_example.yaml</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1.0</span>
+<p>To use a modifier, you can include then in the <code>run</code> key as follows:</p>
+<p><div class="language-yaml highlight"><span class="filename">modifier_example.yaml</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nt">minimum_required_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.4.0</span>
 </span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
 </span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
@@ -1231,23 +1272,23 @@ In this case:</p>
 <li>When multiple modifiers are defined, they are applied sequentially: the output of one modifier becomes the input to the next.</li>
 </ul>
 <p>In this example, the <code>repeat</code> modifier will be applied to the command, causing it to be run multiple times, resulting in:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Using<span class="w"> </span>recipe<span class="w"> </span><span class="s1">&#39;/path/to/modifier_example.yaml&#39;</span><span class="w"> </span>...
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="m">1</span><span class="w"> </span>step<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>found
-</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>Pre-processing<span class="w"> </span>recipe<span class="w"> </span>data<span class="w"> </span>...
-</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>Recipe<span class="w"> </span>pre-processing<span class="w"> </span>successfully<span class="w"> </span>completed
-</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>Parsing<span class="w"> </span>step<span class="w"> </span>environments<span class="w"> </span>...
-</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>Step<span class="w"> </span>environments<span class="w"> </span>processing<span class="w"> </span>successfully<span class="w"> </span>completed
-</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>Pre-processing<span class="w"> </span>recipe<span class="w"> </span>commands<span class="w"> </span>...
-</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>Recipe<span class="w"> </span>commands<span class="w"> </span>successfully<span class="w"> </span>completed
-</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>Running<span class="w"> </span>commands<span class="w"> </span>...
-</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="o">[</span><span class="m">1</span>/1<span class="o">]</span><span class="w"> </span>Running<span class="w"> </span>step<span class="w"> </span><span class="s1">&#39;step&#39;</span><span class="w"> </span>...
-</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="w">      </span>Command:<span class="w">     </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;This message will be repeated multiple times&#39;</span>
-</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>This<span class="w"> </span>message<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>repeated<span class="w"> </span>multiple<span class="w"> </span><span class="nb">times</span>
-</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="w">      </span>Command:<span class="w">     </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;This message will be repeated multiple times&#39;</span>
-</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>This<span class="w"> </span>message<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>repeated<span class="w"> </span>multiple<span class="w"> </span><span class="nb">times</span>
-</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="w">      </span>Command:<span class="w">     </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;This message will be repeated multiple times&#39;</span>
-</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>This<span class="w"> </span>message<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>repeated<span class="w"> </span>multiple<span class="w"> </span><span class="nb">times</span>
-</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>Summary:<span class="w"> </span><span class="m">1</span><span class="w"> </span>step<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>completed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>not<span class="w"> </span>run
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Using recipe &#39;/path/to/modifier_example.yaml&#39; ...
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>1 step(s) found
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>Pre-processing recipe data ...
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>Recipe pre-processing successfully completed
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>Parsing step environments ...
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>Step environments processing successfully completed
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>Pre-processing recipe commands ...
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>Recipe commands successfully completed
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>Running commands ...
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>[1/1] Running step &#39;step&#39; ...
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>      Command:     echo &#39;This message will be repeated multiple times&#39;
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>This message will be repeated multiple times
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>      Command:     echo &#39;This message will be repeated multiple times&#39;
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>This message will be repeated multiple times
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>      Command:     echo &#39;This message will be repeated multiple times&#39;
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>This message will be repeated multiple times
+</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>Summary: 1 step(s) completed, 0 failed, 0 not run
 </span></code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1277,7 +1318,7 @@ In this case:</p>
 </tr>
 </tbody>
 </table>
-<p>Example:
+<p>Example:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
 </span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">    </span><span class="nt">run</span><span class="p">:</span>
@@ -1287,10 +1328,10 @@ In this case:</p>
 </span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">            </span><span class="nt">args</span><span class="p">:</span>
 </span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">              </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__NAME__</span>
 </span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="w">              </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/file.txt</span>
-</span></code></pre></div></p>
-<p>Result:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>The<span class="w"> </span>file<span class="w"> </span>name<span class="w"> </span>is<span class="w"> </span>file.txt
-</span></code></pre></div></p>
+</span></code></pre></div>
+<p>Result:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>The file name is file.txt
+</span></code></pre></div>
 <h3 id="cartesian_product">cartesian_product</h3>
 <p>Generates one command per combination of the values of all tokens.</p>
 <table>
@@ -1309,7 +1350,7 @@ In this case:</p>
 </tr>
 </tbody>
 </table>
-<p>Example:
+<p>Example:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
 </span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">    </span><span class="nt">run</span><span class="p">:</span>
@@ -1319,13 +1360,13 @@ In this case:</p>
 </span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="w">            </span><span class="nt">args</span><span class="p">:</span>
 </span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="w">              </span><span class="nt">__MODEL__</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">small</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">large</span><span class="p p-Indicator">]</span>
 </span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="w">              </span><span class="nt">__SEED__</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">]</span>
-</span></code></pre></div></p>
-<p>Result:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>model<span class="w"> </span>small<span class="w"> </span>with<span class="w"> </span>seed<span class="w"> </span><span class="m">0</span>
-</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>model<span class="w"> </span>small<span class="w"> </span>with<span class="w"> </span>seed<span class="w"> </span><span class="m">1</span>
-</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>model<span class="w"> </span>large<span class="w"> </span>with<span class="w"> </span>seed<span class="w"> </span><span class="m">0</span>
-</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>model<span class="w"> </span>large<span class="w"> </span>with<span class="w"> </span>seed<span class="w"> </span><span class="m">1</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
+<p>Result:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>model small with seed 0
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>model small with seed 1
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>model large with seed 0
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>model large with seed 1
+</span></code></pre></div>
 <h3 id="date">date</h3>
 <p>Replaces a token by a date in a specific format.</p>
 <table>
@@ -1352,7 +1393,7 @@ In this case:</p>
 </tr>
 </tbody>
 </table>
-<p>Example:
+<p>Example:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
 </span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">    </span><span class="nt">run</span><span class="p">:</span>
@@ -1362,10 +1403,10 @@ In this case:</p>
 </span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="w">            </span><span class="nt">args</span><span class="p">:</span>
 </span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="w">              </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__DATE__</span>
 </span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="w">              </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;%Y-%m-%d&quot;</span>
-</span></code></pre></div></p>
-<p>Result:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>Today<span class="w"> </span>is<span class="w"> </span><span class="m">2026</span>-01-06
-</span></code></pre></div></p>
+</span></code></pre></div>
+<p>Result:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>Today is 2026-01-06
+</span></code></pre></div>
 <h3 id="dir_files">dir_files</h3>
 <p>Expands a command creating one copy per file in a given folder.</p>
 <table>
@@ -1428,7 +1469,7 @@ In this case:</p>
 </tr>
 </tbody>
 </table>
-<p>Example:
+<p>Example:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
 </span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">    </span><span class="nt">env</span><span class="p">:</span>
@@ -1440,13 +1481,13 @@ In this case:</p>
 </span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="w">            </span><span class="nt">args</span><span class="p">:</span>
 </span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="w">              </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__FILE__</span>
 </span><span id="__span-31-11"><a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a><span class="w">              </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="nv">*dir</span>
-</span></code></pre></div></p>
-<p>Result:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>/path/to/my/dir<span class="w"> </span>contains<span class="w"> </span>file<span class="w"> </span>/path/to/my/dir/00_file.yaml
-</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>/path/to/my/dir<span class="w"> </span>contains<span class="w"> </span>file<span class="w"> </span>/path/to/my/dir/01_file.yaml
+</span></code></pre></div>
+<p>Result:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>/path/to/my/dir contains file /path/to/my/dir/00_file.yaml
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>/path/to/my/dir contains file /path/to/my/dir/01_file.yaml
 </span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>...
-</span></code></pre></div></p>
-<p>The optional tokens make it possible to build an output path from each input file. For example, to convert all <code>.wav</code> files in a folder to <code>.flac</code>, keeping the same subfolders:
+</span></code></pre></div>
+<p>The optional tokens make it possible to build an output path from each input file. For example, to convert all <code>.wav</code> files in a folder to <code>.flac</code>, keeping the same subfolders:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
 </span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">    </span><span class="nt">run</span><span class="p">:</span>
@@ -1459,7 +1500,7 @@ In this case:</p>
 </span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="w">              </span><span class="nt">ext</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wav</span>
 </span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="w">              </span><span class="nt">stem_token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__STEM__</span>
 </span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a><span class="w">              </span><span class="nt">rel_dir_token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__REL_DIR__</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
 <h3 id="index">index</h3>
 <p>Replaces a token by the command index value.</p>
 <table>
@@ -1492,7 +1533,7 @@ In this case:</p>
 </tr>
 </tbody>
 </table>
-<p>Example:
+<p>Example:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
 </span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="w">    </span><span class="nt">run</span><span class="p">:</span>
@@ -1506,12 +1547,12 @@ In this case:</p>
 </span><span id="__span-34-11"><a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a><span class="w">              </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__INDEX__</span>
 </span><span id="__span-34-12"><a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a><span class="w">              </span><span class="nt">zfill</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
 </span><span id="__span-34-13"><a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a><span class="w">              </span><span class="nt">offset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-</span></code></pre></div></p>
-<p>Result:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Command<span class="w"> </span>number<span class="w"> </span><span class="m">01</span>
-</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>Command<span class="w"> </span>number<span class="w"> </span><span class="m">02</span>
-</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>Command<span class="w"> </span>number<span class="w"> </span><span class="m">03</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
+<p>Result:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Command number 01
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>Command number 02
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>Command number 03
+</span></code></pre></div>
 <h3 id="match">match</h3>
 <p>Replaces a token value based on a matching value of a given variable.</p>
 <table>
@@ -1545,7 +1586,7 @@ In this case:</p>
 </tr>
 </tbody>
 </table>
-<p>Example:
+<p>Example:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
 </span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="w">    </span><span class="nt">env</span><span class="p">:</span>
@@ -1559,10 +1600,10 @@ In this case:</p>
 </span><span id="__span-36-11"><a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a><span class="w">              </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__MATCH__</span>
 </span><span id="__span-36-12"><a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a><span class="w">              </span><span class="nt">choices</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;first&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;second&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;third&quot;</span><span class="p p-Indicator">]</span>
 </span><span id="__span-36-13"><a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a><span class="w">              </span><span class="nt">values</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;bird&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;cat&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;dog&quot;</span><span class="p p-Indicator">]</span>
-</span></code></pre></div></p>
-<p>Result:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>The<span class="w"> </span>second<span class="w"> </span>choice<span class="w"> </span>is<span class="w"> </span>cat
-</span></code></pre></div></p>
+</span></code></pre></div>
+<p>Result:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>The second choice is cat
+</span></code></pre></div>
 <h3 id="parent_dir">parent_dir</h3>
 <p>Replaces a token by the path to the parent directory of a given path.</p>
 <table>
@@ -1591,7 +1632,7 @@ In this case:</p>
 </tr>
 </tbody>
 </table>
-<p>Example:
+<p>Example:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
 </span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="w">    </span><span class="nt">env</span><span class="p">:</span>
@@ -1603,10 +1644,10 @@ In this case:</p>
 </span><span id="__span-38-9"><a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a><span class="w">            </span><span class="nt">args</span><span class="p">:</span>
 </span><span id="__span-38-10"><a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a><span class="w">              </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__PARENT_DIR__</span>
 </span><span id="__span-38-11"><a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a><span class="w">              </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="nv">*dir</span>
-</span></code></pre></div></p>
-<p>Result:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>The<span class="w"> </span>parent<span class="w"> </span>dir<span class="w"> </span>of<span class="w"> </span>/path/to/parent_dir/file.txt<span class="w"> </span>is<span class="w"> </span>/path/to/parent_dir
-</span></code></pre></div></p>
+</span></code></pre></div>
+<p>Result:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>The parent dir of /path/to/parent_dir/file.txt is /path/to/parent_dir
+</span></code></pre></div>
 <h3 id="randchoice">randchoice</h3>
 <p>Picks a random choice from a list.</p>
 <table>
@@ -1635,7 +1676,7 @@ In this case:</p>
 </tr>
 </tbody>
 </table>
-<p>Example:
+<p>Example:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
 </span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="w">    </span><span class="nt">run</span><span class="p">:</span>
@@ -1645,10 +1686,10 @@ In this case:</p>
 </span><span id="__span-40-7"><a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="w">            </span><span class="nt">args</span><span class="p">:</span>
 </span><span id="__span-40-8"><a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a><span class="w">              </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__CHOICE__</span>
 </span><span id="__span-40-9"><a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a><span class="w">              </span><span class="nt">choices</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;bird&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;cat&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;dog&quot;</span><span class="p p-Indicator">]</span>
-</span></code></pre></div></p>
-<p>Result:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>My<span class="w"> </span>pet<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>bird
-</span></code></pre></div></p>
+</span></code></pre></div>
+<p>Result:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>My pet is a bird
+</span></code></pre></div>
 <h3 id="randint">randint</h3>
 <p>Generates a random integer between <code>min</code> (included) and <code>max</code> (included).</p>
 <table>
@@ -1682,7 +1723,7 @@ In this case:</p>
 </tr>
 </tbody>
 </table>
-<p>Example:
+<p>Example:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
 </span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="w">    </span><span class="nt">run</span><span class="p">:</span>
@@ -1693,10 +1734,10 @@ In this case:</p>
 </span><span id="__span-42-8"><a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a><span class="w">              </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__WINNER__</span>
 </span><span id="__span-42-9"><a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a><span class="w">              </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 </span><span id="__span-42-10"><a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a><span class="w">              </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
-</span></code></pre></div></p>
-<p>Result:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>The<span class="w"> </span>lottery<span class="w"> </span>winner<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>number<span class="w"> </span><span class="m">90</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
+<p>Result:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>The lottery winner is the number 90
+</span></code></pre></div>
 <h3 id="randfloat">randfloat</h3>
 <p>Generated a random float-point number within the <code>[min, max)</code> range.</p>
 <table>
@@ -1730,7 +1771,7 @@ In this case:</p>
 </tr>
 </tbody>
 </table>
-<p>Example:
+<p>Example:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
 </span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="w">    </span><span class="nt">run</span><span class="p">:</span>
@@ -1741,10 +1782,10 @@ In this case:</p>
 </span><span id="__span-44-8"><a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="w">              </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__FLOAT__</span>
 </span><span id="__span-44-9"><a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a><span class="w">              </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
 </span><span id="__span-44-10"><a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a><span class="w">              </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span>
-</span></code></pre></div></p>
-<p>Result:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>The<span class="w"> </span>generated<span class="w"> </span>floating-point<span class="w"> </span>number<span class="w"> </span>is<span class="w"> </span><span class="m">0</span>.4770061600654977
-</span></code></pre></div></p>
+</span></code></pre></div>
+<p>Result:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>The generated floating-point number is 0.4770061600654977
+</span></code></pre></div>
 <h3 id="replace">replace</h3>
 <p>Replace one or multiple tokens by a given value.</p>
 <table>
@@ -1759,11 +1800,11 @@ In this case:</p>
 <tr>
 <td><code>**kwargs</code></td>
 <td><code>str</code></td>
-<td>Keyword arguments where each key is the a token and each value is the token value.<br>If a <code>list</code> of multiple values is passed, one command per value will be generated.</td>
+<td>Keyword arguments where each key is a token and each value is the token value.<br>If a <code>list</code> of multiple values is passed, one command per value will be generated.</td>
 </tr>
 </tbody>
 </table>
-<p>Example:
+<p>Example:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
 </span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="w">    </span><span class="nt">run</span><span class="p">:</span>
@@ -1773,11 +1814,11 @@ In this case:</p>
 </span><span id="__span-46-7"><a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a><span class="w">            </span><span class="nt">args</span><span class="p">:</span>
 </span><span id="__span-46-8"><a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a><span class="w">              </span><span class="nt">dog</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bird</span>
 </span><span id="__span-46-9"><a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a><span class="w">              </span><span class="nt">cat</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fish</span>
-</span></code></pre></div></p>
-<p>Result:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>The<span class="w"> </span>bird<span class="w"> </span>arrived<span class="w"> </span>first,<span class="w"> </span>and<span class="w"> </span><span class="k">then</span><span class="w"> </span>the<span class="w"> </span>fish<span class="w"> </span>came
-</span></code></pre></div></p>
-<p>Example (multiple values):
+</span></code></pre></div>
+<p>Result:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>The bird arrived first, and then the fish came
+</span></code></pre></div>
+<p>Example (multiple values):</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
 </span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="w">    </span><span class="nt">run</span><span class="p">:</span>
@@ -1787,11 +1828,11 @@ In this case:</p>
 </span><span id="__span-48-7"><a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a><span class="w">            </span><span class="nt">args</span><span class="p">:</span>
 </span><span id="__span-48-8"><a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a><span class="w">              </span><span class="nt">dog</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">bird</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">lizard</span><span class="p p-Indicator">]</span>
 </span><span id="__span-48-9"><a id="__codelineno-48-9" name="__codelineno-48-9" href="#__codelineno-48-9"></a><span class="w">              </span><span class="nt">cat</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">fish</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">wizard</span><span class="p p-Indicator">]</span>
-</span></code></pre></div></p>
-<p>Result:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>The<span class="w"> </span>bird<span class="w"> </span>arrived<span class="w"> </span>first,<span class="w"> </span>and<span class="w"> </span><span class="k">then</span><span class="w"> </span>the<span class="w"> </span>fish<span class="w"> </span>came
-</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>The<span class="w"> </span>lizard<span class="w"> </span>arrived<span class="w"> </span>first,<span class="w"> </span>and<span class="w"> </span><span class="k">then</span><span class="w"> </span>the<span class="w"> </span>wizard<span class="w"> </span>came
-</span></code></pre></div></p>
+</span></code></pre></div>
+<p>Result:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>The bird arrived first, and then the fish came
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>The lizard arrived first, and then the wizard came
+</span></code></pre></div>
 <h3 id="repeat">repeat</h3>
 <p>Repeats a command a given number of times.</p>
 <table>
@@ -1810,7 +1851,7 @@ In this case:</p>
 </tr>
 </tbody>
 </table>
-<p>Example:
+<p>Example:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
 </span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="w">    </span><span class="nt">run</span><span class="p">:</span>
@@ -1819,12 +1860,12 @@ In this case:</p>
 </span><span id="__span-50-6"><a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">repeat</span>
 </span><span id="__span-50-7"><a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a><span class="w">            </span><span class="nt">args</span><span class="p">:</span>
 </span><span id="__span-50-8"><a id="__codelineno-50-8" name="__codelineno-50-8" href="#__codelineno-50-8"></a><span class="w">              </span><span class="nt">n</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-</span></code></pre></div></p>
-<p>Result:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>I<span class="w"> </span>tend<span class="w"> </span>to<span class="w"> </span>repeat<span class="w"> </span>myself
-</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>I<span class="w"> </span>tend<span class="w"> </span>to<span class="w"> </span>repeat<span class="w"> </span>myself
-</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>I<span class="w"> </span>tend<span class="w"> </span>to<span class="w"> </span>repeat<span class="w"> </span>myself
-</span></code></pre></div></p>
+</span></code></pre></div>
+<p>Result:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>I tend to repeat myself
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>I tend to repeat myself
+</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>I tend to repeat myself
+</span></code></pre></div>
 <h3 id="run_if">run_if</h3>
 <p>Runs a command only if a variable matches a given value.</p>
 <table>
@@ -1848,7 +1889,7 @@ In this case:</p>
 </tr>
 </tbody>
 </table>
-<p>Example:
+<p>Example:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
 </span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="w">    </span><span class="nt">env</span><span class="p">:</span>
@@ -1863,10 +1904,10 @@ In this case:</p>
 </span><span id="__span-52-12"><a id="__codelineno-52-12" name="__codelineno-52-12" href="#__codelineno-52-12"></a><span class="w">            </span><span class="nt">args</span><span class="p">:</span>
 </span><span id="__span-52-13"><a id="__codelineno-52-13" name="__codelineno-52-13" href="#__codelineno-52-13"></a><span class="w">              </span><span class="nt">var</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$RUN</span>
 </span><span id="__span-52-14"><a id="__codelineno-52-14" name="__codelineno-52-14" href="#__codelineno-52-14"></a><span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">y</span>
-</span></code></pre></div></p>
-<p>Result:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>The<span class="w"> </span><span class="nb">command</span><span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>executed
-</span></code></pre></div></p>
+</span></code></pre></div>
+<p>Result:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>The command has been executed
+</span></code></pre></div>
 <h3 id="shard">shard</h3>
 <p>Keeps only one shard of the commands, so that they can be split across multiple processes or jobs. Commands are assigned to shards in a round-robin fashion.</p>
 <table>
@@ -1890,7 +1931,7 @@ In this case:</p>
 </tr>
 </tbody>
 </table>
-<p>Example:
+<p>Example:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="nt">recipe</span><span class="p">:</span>
 </span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="w">  </span><span class="nt">step</span><span class="p">:</span>
 </span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="w">    </span><span class="nt">run</span><span class="p">:</span>
@@ -1904,7 +1945,7 @@ In this case:</p>
 </span><span id="__span-54-11"><a id="__codelineno-54-11" name="__codelineno-54-11" href="#__codelineno-54-11"></a><span class="w">            </span><span class="nt">args</span><span class="p">:</span>
 </span><span id="__span-54-12"><a id="__codelineno-54-12" name="__codelineno-54-12" href="#__codelineno-54-12"></a><span class="w">              </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$SLURM_ARRAY_TASK_ID</span>
 </span><span id="__span-54-13"><a id="__codelineno-54-13" name="__codelineno-54-13" href="#__codelineno-54-13"></a><span class="w">              </span><span class="nt">num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p>When run as a SLURM array job with <code>sbatch --array=0-19</code>, each of the 20 jobs processes a different 1/20 of the files.</p>
 <h2 id="skipping-existing-outputs">Skipping existing outputs</h2>
 <p>A <code>dict</code> command can contain a <code>skip_if_exists</code> key with one or more paths. The command is skipped if all of them exist. The same tokens replaced by the modifiers in <code>cmd</code> are also replaced in <code>skip_if_exists</code>, so each generated command can point to its own output. Relative paths are resolved from the <code>cwd</code> of the step.</p>
@@ -1935,35 +1976,113 @@ In this case:</p>
 </span><span id="__span-56-10"><a id="__codelineno-56-10" name="__codelineno-56-10" href="#__codelineno-56-10"></a><span class="w">              </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">corpus</span>
 </span><span id="__span-56-11"><a id="__codelineno-56-11" name="__codelineno-56-11" href="#__codelineno-56-11"></a><span class="w">              </span><span class="nt">stem_token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__STEM__</span>
 </span></code></pre></div>
-<p>The output of each command is printed when it finishes, so the outputs of different commands are not mixed. If a command fails, no new commands are started, and <code>recp</code> stops once the running commands finish. With <code>--ignore-errors</code>, all commands are run.</p>
+<p>If a command fails, no new commands are started, and <code>recp</code> stops once the running commands finish. With <code>--ignore-errors</code>, all commands are run.</p>
 <p>The <code>--jobs</code> option overrides the <code>parallel</code> key of all steps that have one. For example, <code>--jobs 1</code> runs all commands one after another, which is useful for debugging.</p>
+<p>Steps without a <code>parallel</code> key, or run with <code>--jobs 1</code>, are not affected by anything in this section: their commands write directly to the terminal, as usual.</p>
+<h3 id="output-modes">Output modes</h3>
+<p>The outputs of parallel commands are never mixed. How they are shown is set with the <code>--output</code> option:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>auto</code></td>
+<td>Default. Uses <code>board</code> when printing to a terminal, and <code>grouped</code> otherwise (e.g. when the output is redirected to a file or in CI).</td>
+</tr>
+<tr>
+<td><code>board</code></td>
+<td>Shows a live table under the output with the status, run time and last output line of each command. Progress bars of the commands are shown as they update. The full output of each command is printed above the table when it finishes.</td>
+</tr>
+<tr>
+<td><code>grouped</code></td>
+<td>Prints the full output of each command when it finishes, with no live table.</td>
+</tr>
+<tr>
+<td><code>prefix</code></td>
+<td>Prints output lines as they arrive, prefixed with the ID and label of their command. Progress bars are printed at most once every few seconds.</td>
+</tr>
+</tbody>
+</table>
+<p>In <code>board</code> mode, a step that runs a model on four datasets, run with <code>--jobs 2</code>, looks like this while running:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>[1/1] Running step &#39;infer&#39; ...
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>      Parallel:    2 commands at a time
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a>      Logs:        ~/.local/state/recp/runs/20261006-111502-4512
+</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a>──────────────────────────────────────────────────────────────────────────────
+</span><span id="__span-57-5"><a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a> infer  1 done · 2 running · 1 queued · 0 failed                         04:07
+</span><span id="__span-57-6"><a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a> #  Status     Time     Label              Last line
+</span><span id="__span-57-7"><a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a> 1  Done       03:12    --dataset clean
+</span><span id="__span-57-8"><a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a> 2  Running    04:07    --dataset noisy    Processing:  58%|█████▌    | 464/800
+</span><span id="__span-57-9"><a id="__codelineno-57-9" name="__codelineno-57-9" href="#__codelineno-57-9"></a> 3  Running    00:55    --dataset reverb   Processing:  13%|█▎        | 104/800
+</span><span id="__span-57-10"><a id="__codelineno-57-10" name="__codelineno-57-10" href="#__codelineno-57-10"></a> 4  Queued     -        --dataset music
+</span><span id="__span-57-11"><a id="__codelineno-57-11" name="__codelineno-57-11" href="#__codelineno-57-11"></a>──────────────────────────────────────────────────────────────────────────────
+</span></code></pre></div>
+<p>When the step finishes, the table is replaced by a summary of all commands. Steps with more than 20 commands only list the commands that did not succeed.</p>
+<p>With <code>--output prefix</code>, the same run looks like this:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>[1 --dataset clean] Loading model ...
+</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>[2 --dataset noisy] Loading model ...
+</span><span id="__span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>[1 --dataset clean] Processing:  10%|█         | 80/800
+</span></code></pre></div>
+<h3 id="command-labels">Command labels</h3>
+<p>Each parallel command gets a short label to tell it apart from the others. By default, the label is the part of the command that differs from the other commands of the step, such as <code>--dataset noisy</code> in the example above. Labels are only inferred when all commands of the step have the same number of arguments, so a step with unrelated commands shows the commands themselves.</p>
+<p>A <code>label</code> key sets the label explicitly. Tokens replaced by the modifiers in <code>cmd</code> are also replaced in <code>label</code>:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="w">    </span><span class="nt">run</span><span class="p">:</span>
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python infer.py --input data/__SET__ --output out/__SET__</span>
+</span><span id="__span-59-3"><a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a><span class="w">        </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__SET__</span>
+</span><span id="__span-59-4"><a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a><span class="w">        </span><span class="nt">apply</span><span class="p">:</span>
+</span><span id="__span-59-5"><a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cartesian_product</span>
+</span><span id="__span-59-6"><a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a><span class="w">            </span><span class="nt">args</span><span class="p">:</span>
+</span><span id="__span-59-7"><a id="__codelineno-59-7" name="__codelineno-59-7" href="#__codelineno-59-7"></a><span class="w">              </span><span class="nt">__SET__</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">clean</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">noisy</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">reverb</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">music</span><span class="p p-Indicator">]</span>
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The <code>label</code> key, the live table and the <code>recp status</code>, <code>recp log</code> and <code>recp follow</code> commands were introduced in version <code>0.4.0</code>, so update your <code>minimum_required_version</code> if a recipe uses <code>label</code> and that key is present.</p>
+</div>
+<h3 id="following-parallel-commands">Following parallel commands</h3>
+<p>The output of every parallel command is saved to a log file. The <code>Logs:</code> line printed at the start of the step shows the folder of the current run. Commands are numbered from <code>1</code> within each run, across all of its parallel steps.</p>
+<p>These commands work from another terminal while the recipe is running, or after it finishes:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>recp status          # status of the commands of the latest run
+</span><span id="__span-60-2"><a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>recp log 4           # full command and output of command 4
+</span><span id="__span-60-3"><a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a>recp log 4 -n 20     # last 20 lines of output of command 4
+</span><span id="__span-60-4"><a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a>recp follow 2        # stream the output of command 2 while it runs
+</span></code></pre></div>
+<p><code>recp follow</code> waits for the command to start if it is still queued, and stops when the command finishes. Pressing <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> stops following, but not the command. Its exit code is the exit code of the command.</p>
+<p>All three take a <code>--run</code> option to show an older run. To list the stored runs, use:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>recp status --list
+</span></code></pre></div>
+<p>The logs of the last 20 runs are kept. This number can be changed with:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>recp config --set runs.keep 50
+</span></code></pre></div>
 <h2 id="recipe-shortcuts">Recipe shortcuts</h2>
 <p>You can store frequently used recipes in a folder that <code>recp</code> reads automatically, and then refer to a recipe just by its name.</p>
-<p>To add a new recipe shortcut this way, simply use:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>recp<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>/path/to/your/custom_recipe.yaml
-</span></code></pre></div></p>
-<p>Then this recipe can be run as:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>recp<span class="w"> </span>run<span class="w"> </span>custom_recipe
-</span></code></pre></div></p>
-<p>You can see the folder location and other <code>recp</code> settings by running:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>recp<span class="w"> </span>config
-</span></code></pre></div></p>
-<p>To change the default recipes folder you can use:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>recp<span class="w"> </span>config<span class="w"> </span>--set<span class="w"> </span>recipes.dir<span class="w"> </span>/path/to/your/new/recipes/folder
-</span></code></pre></div></p>
-<p>To list the recipes in the recipes folder, you can use:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>recp<span class="w"> </span>list
-</span></code></pre></div></p>
+<p>To add a recipe to the recipes folder, use:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>recp config --add /path/to/your/custom_recipe.yaml
+</span></code></pre></div>
+<p>Then this recipe can be run as:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>recp run custom_recipe
+</span></code></pre></div>
+<p>You can see the folder location and other <code>recp</code> settings by running:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>recp config
+</span></code></pre></div>
+<p>To change the default recipes folder you can use:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>recp config --set recipes.dir /path/to/your/new/recipes/folder
+</span></code></pre></div>
+<p>To list the recipes in the recipes folder, you can use:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>recp list
+</span></code></pre></div>
 <h2 id="editor-support">Editor support</h2>
-<p>A <a href="https://raw.githubusercontent.com/eagomez2/recp/main/recipe.schema.json">JSON Schema</a> for recipe files is available. With the <a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml">YAML extension</a> for VS Code, or any editor using the YAML language server, it provides autocompletion and validation of recipe files. To enable it, add the following line at the top of your recipe:
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="c1"># yaml-language-server: $schema=https://raw.githubusercontent.com/eagomez2/recp/main/recipe.schema.json</span>
-</span></code></pre></div></p>
-<p>To avoid warnings about the <code>recp</code> constructors, add them to your VS Code settings:
-<div class="language-json highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="nt">&quot;yaml.customTags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-63-2"><a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a><span class="w">  </span><span class="s2">&quot;!input mapping&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!input scalar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!prompt mapping&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!expr scalar&quot;</span><span class="p">,</span>
-</span><span id="__span-63-3"><a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a><span class="w">  </span><span class="s2">&quot;!split scalar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!lines scalar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!shell scalar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!now scalar&quot;</span>
-</span><span id="__span-63-4"><a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a><span class="p">]</span>
-</span></code></pre></div></p>
+<p>A <a href="https://raw.githubusercontent.com/eagomez2/recp/main/recipe.schema.json">JSON Schema</a> for recipe files is available. With the <a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml">YAML extension</a> for VS Code, or any editor using the YAML language server, it provides autocompletion and validation of recipe files. To enable it, add the following line at the top of your recipe:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="c1"># yaml-language-server: $schema=https://raw.githubusercontent.com/eagomez2/recp/main/recipe.schema.json</span>
+</span></code></pre></div>
+<p>To avoid warnings about the <code>recp</code> constructors, add them to your VS Code settings:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="nt">&quot;yaml.customTags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-69-2"><a id="__codelineno-69-2" name="__codelineno-69-2" href="#__codelineno-69-2"></a><span class="w">  </span><span class="s2">&quot;!input mapping&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!input scalar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!prompt mapping&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!expr scalar&quot;</span><span class="p">,</span>
+</span><span id="__span-69-3"><a id="__codelineno-69-3" name="__codelineno-69-3" href="#__codelineno-69-3"></a><span class="w">  </span><span class="s2">&quot;!split scalar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!lines scalar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!shell scalar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!now scalar&quot;</span>
+</span><span id="__span-69-4"><a id="__codelineno-69-4" name="__codelineno-69-4" href="#__codelineno-69-4"></a><span class="p">]</span>
+</span></code></pre></div>
 
 
 
@@ -1996,6 +2115,46 @@ In this case:</p>
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../quickstart/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quickstart">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Quickstart
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../license/" class="md-footer__link md-footer__link--next" aria-label="Next: License">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                License
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -2026,7 +2185,7 @@ In this case:</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.footer", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
